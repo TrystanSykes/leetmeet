@@ -4,7 +4,7 @@
 
   <div class="events_index_filters">
     <span>Filter by game:</span>
-    <select name="" id="">
+    <select name="" id="game_filter">
       <% @games.each do |game| %>
         <option value=""> <%= game.name %> </option>
       <% end %>
@@ -26,3 +26,10 @@
   </div>
 
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+  // $select = $('#game_filter')
+  // $select.change(function() {
+  //   $game = $select.val()
+  // });
+</script>

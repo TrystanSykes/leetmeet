@@ -1,3 +1,10 @@
+// NEEDED WHEN USING FLEXBOX
+.events_show *,
+.events_index * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 // ALL STYLING FOR EVENTS/SHOW
 .events_show {
   width: 1200px;
@@ -33,12 +40,18 @@
     display: flex;
     justify-content: space-between;
     .events_show_attending_btn {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 56px; 
       width: 15%;
       height: 80%;
       background-color: gold;
       margin: 7px 0 7px 7px;
     }
     ul {
+      text-align: center;
+      vertical-align: middle;
+      line-height: 56px; 
       width: 15%;
       height: 80%;
       background-color: gold;
@@ -48,6 +61,16 @@
       }
     }
   }
+  .events_show_about {
+    padding: 7px;
+    background-color: lemonchiffon;
+    h3 {
+
+    }
+    p {
+
+    }
+  }
 }
 // ALL STYLING FOR EVENTS/INDEX
 .events_index {
@@ -55,7 +78,7 @@
   height: 700px;
   background-color: mistyrose;
   .events_index_filters {
-    height: 10%;
+    height: 5%;
     background-color: tomato;
   }
   .events_index_event {
@@ -63,11 +86,5 @@
   }
 }
 
-// NEEDED WHEN USING FLEXBOX
-.events_show *,
-.events_index * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 
