@@ -1,2 +1,23 @@
 <h1>Events#show</h1>
 <p>Find me in app/views/events/show.html.erb</p>
+
+<div class="events_show_map"></div>
+
+<div class="events_show_info">
+  <h1>Title: <%= @event.title %> </h1>
+  <h2>Created by: <%= @event.user.username %> </h2>
+  <h3>Game: @event.game.name</h3>
+  <h3>Category: @event.category.name</h3>
+</div>
+<div class="events_show_attending_info">
+  <span class="events_show_attending-btn"></span>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+      <li> <%= attendee.username %> </li>
+    <% end %>
+  </ul>
+</div>
+<div class="events_show_about">
+  <p>@event.about</p>
+</div>
+
