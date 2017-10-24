@@ -1,2 +1,26 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<h1>1337M337</h1>
+
+<div id="map"></div>
+<style>
+  #map {
+  height: 600px;
+  width: 600px;
+       }
+</style>
+<script>
+  function initMap() {
+    var melbourne = {lat: -37.9701541, lng: 144.4926951};
+    var GA = {lat: -37.818573, lng: 144.9569066};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 4,
+      center: melbourne
+    });
+    var marker = new google.maps.Marker({
+      position: GA,
+      map: map
+    });
+  }
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&callback=initMap">
+</script>
