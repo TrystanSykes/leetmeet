@@ -19,8 +19,8 @@ class EventsController < ApplicationController
     event.user_id = params[:user_id]
     event.title = params[:title]
     event.location = params[:location]
-    event.game_id = params[:game_id]
-    event.category_id = params[:category_id]
+    event.game_id = params[:game_id].to_i
+    event.category_id = params[:category_id].to_i
     event.about = params[:about]
     event.active = true
     if event.save
