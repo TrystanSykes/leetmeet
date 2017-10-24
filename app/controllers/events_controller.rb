@@ -1,6 +1,8 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+    @games = Game.all
+    @categories = Category.all
   end
 
   def show
@@ -8,7 +10,8 @@ class EventsController < ApplicationController
   end
 
   def new
-
+    @games = Game.all
+    @categories = Category.all
   end
 
   def create

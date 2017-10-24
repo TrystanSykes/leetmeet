@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-
+get '/events/delete/:id', to: 'events#delete'
   resources :events
-
+get '/users/delete/:id', to: 'users#delete'
   resources :users
 
   root 'pages#index'
