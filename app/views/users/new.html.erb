@@ -1,25 +1,28 @@
-<h1>Create New User</h1>
+<div class="users_new_page">
+  <h1>Create New User</h1>
 
-<% if @errors %>
+  <% if @errors %>
 
-  <% @errors.each do |error| %>
-    <p><%= error %></p>
+    <% @errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+
   <% end %>
 
-<% end %>
+  <%= form_tag '/users', method: 'post' do %>
+    <div>Username: <input type="text" name="username"></div>
 
-<%= form_tag '/users', method: 'post' do %>
-  <div>Username: <input type="text" name="username"></div>
+    <div>Email: <input type="text" name="email"></div>
 
-  <div>Email: <input type="text" name="email"></div>
+    <div>Password: <input type="password" name="password"></div>
 
-  <div>Password: <input type="password" name="password"></div>
+    <div>Avatar: <textarea name="avatar_url"></textarea></div>
 
-  <div>Avatar: <textarea name="avatar_url"></textarea></div>
-
-  <div>Bio: <textarea name="bio"></textarea></div>
+    <div>Bio: <textarea name="bio"></textarea></div>
 
 
-  <button class="users_new_button" type="submit">Create New User</button>
+    <button class="button" type="submit">Create New User</button>
 
-<% end %>
+  <% end %>
+
+</div>
