@@ -1,0 +1,30 @@
+.events_new
+{
+  background: dodgerblue;
+  padding: 20px 30px;
+  width: 50%;
+}
+
+.form_container
+{
+  width: 100%;
+
+  .form_group_input,
+  .form_group_select
+  {
+    display: inline-block;
+    margin: 10px 0;
+    width: 49%;
+  }
+
+  .form_group
+  {
+    margin: 10px 0;
+  }
+
+  input[type=text],
+  textarea
+  {
+    width: 100%;
+  }
+}

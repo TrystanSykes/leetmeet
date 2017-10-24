@@ -1,0 +1,55 @@
+// Main Layout
+body
+{
+  background: mistyrose;
+}
+
+// Header
+header
+{
+
+}
+
+.main_menu_container
+{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px 30px;
+  width: 100%;
+
+  .logo_container
+  {
+    width: 30%;
+  }
+
+  nav
+  {
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+
+    .menu-left
+    {
+      width: 60%;
+    }
+
+    .menu-right
+    {
+      width: 40%;
+    }
+  }
+}
+
+// Main Content
+.main
+{
+  margin: 0 auto;
+  max-width: 1500px;
+}
+
+// Header
+footer
+{
+
+}

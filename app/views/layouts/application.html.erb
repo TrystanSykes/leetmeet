@@ -4,21 +4,36 @@
     <title>1337m337</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
   </head>
 
   <body>
     <header>
-      <ul>
-        <a href="/"><li>Home</li></a>
-        <a href="/events"><li>Events</li></a>
-      </ul>
-      <a href="/users/new"><button>Log In</button></a>
+      <div class="main_menu_container">
+        <div class="logo_container">
+          <h1>1337M337</h1>
+        </div>
+        <nav id="nav">
+          <div class="menu_left">
+            <a href="/">Home</a>
+            <a href="/events">Events</a>
+          </div>
+
+          <div class="menu_right">
+            <a href="/users/new">Log In</a>
+          </div>
+        </nav>
+      </div>
     </header>
-    <%= yield %>
+
+    <div class="main">
+      <%= yield %>
+    </div>
+
     <footer>
-      <p>copyright 1337m337 2017</p>
+      <p>&copy; 1337m337 2017</p>
     </footer>
   </body>
 </html>
