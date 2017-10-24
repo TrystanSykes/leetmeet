@@ -1,21 +1,24 @@
-<h1>Update User Profile</h1>
+<div class="users_edit_page">
+  <h1>Update User Profile</h1>
 
-<% if @errors %>
+  <% if @errors %>
 
-  <% @errors.each do |error| %>
-    <p><%= error %></p>
+    <% @errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+
   <% end %>
 
-<% end %>
+  <%= form_tag("/users/#{@user.id}", method: :put) do %>
+    <div>Username: <input type="text" name="username" value="<%= @user.username %>"></div>
 
-<%= form_tag "/users/#{@user.id} %>", method: 'post' do %>
-  <div>Username: <input type="text" name="username" value="<%= @user.username %>"></div>
+    <div>Avatar: <textarea name="avatar_url"><%= @user.avatar_url %></textarea></div>
 
-  <div>Avatar: <textarea name="avatar_url"><%= @user.avatar_url %></textarea></div>
-
-  <div>Bio: <textarea name="bio"><%= @user.bio %></textarea></div>
+    <div>Bio: <textarea name="bio"><%= @user.bio %></textarea></div>
 
 
-  <button class="users_edit_button" type="submit">Update Profile</button>
+    <button class="button" type="submit">Update Profile</button>
 
-<% end %>
+  <% end %>
+
+</div>
