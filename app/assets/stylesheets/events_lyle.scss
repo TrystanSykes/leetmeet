@@ -1,15 +1,5 @@
-// NEEDED WHEN USING FLEXBOX
-.events_show *,
-.events_index * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 // ALL STYLING FOR EVENTS/SHOW
 .events_show {
-  width: 1200px;
-  height: 700px;
-  background-color: mistyrose;
   .events_show_top {
     display: flex;
     justify-content: space-between;
@@ -74,8 +64,6 @@
 }
 // ALL STYLING FOR EVENTS/INDEX
 .events_index {
-  width: 1200px;
-  height: 700px;
   background-color: mistyrose;
   .events_index_filters {
     height: 5%;
@@ -83,6 +71,7 @@
   }
   .events_index_event {
     background-color: skyblue;
+    width: 50%;
   }
 }
 
