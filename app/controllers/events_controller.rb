@@ -45,11 +45,12 @@ class EventsController < ApplicationController
     else
       @errors = event.errors.full_messages
       render :edit
+    end
 
   end
 
   def delete
-    @event = Event.find(params[:id]
+    @event = Event.find(params[:id])
   end
 
   def destroy
