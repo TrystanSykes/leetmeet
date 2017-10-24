@@ -27,6 +27,8 @@ class EventsController < ApplicationController
       redirect_to "/events/#{event.id}"
     else
       @errors = event.errors.full_messages
+      @games = Game.all
+      @categories = Category.all
       render :new
     end
   end
