@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     else
       @errors = user.errors.full_messages
       render :new
+    end
   end
 
   def edit
@@ -35,6 +36,7 @@ class UsersController < ApplicationController
     else
       @errors = user.errors.full_messages
       render :edit
+    end
   end
 
   def delete
