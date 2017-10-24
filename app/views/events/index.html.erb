@@ -9,6 +9,16 @@
   </select>
 </div>
 <div class="events_index_event_list">
-  <%= @events.each do |event| %>
+  <% @events.each do |event| %>
+    <div class="events_index_event">
+      <p>
+        <%= event.title %>
+        <%= event.user.name %>
+        <%= event.location %>
+        <%= event.game.name %>
+        <%= event.category.name %>
+      </p>
+    </div>
+  <% end %>
     
 </div>

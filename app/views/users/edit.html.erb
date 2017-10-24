@@ -8,7 +8,7 @@
 
 <% end %>
 
-<%= form_tag "/users/<%= @user.id %>", method: 'post' do %>
+<%= form_tag "/users/#{@user.id} %>", method: 'post' do %>
   <div>Username: <input type="text" name="username" value="<%= @user.username %>"></div>
 
   <div>Avatar: <textarea name="avatar_url"><%= @user.avatar_url %></textarea></div>
