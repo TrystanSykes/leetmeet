@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="user_show_container">
+  <h1><%= @user.username %></h1><span><%= @user.reputation %></span>
+  <img src="<%= @user.avatar_url %>" alt="">
+  <p><%= @user.bio %></p>
+  <a href="/users/<%= @user.id %>/edit"><button>Edit</button></a>
+  <a href="/users/delete/<%= @user.id %>"><button>Delete</button></a>
+</div>
