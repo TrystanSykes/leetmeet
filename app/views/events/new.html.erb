@@ -1,2 +1,29 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h1>New Event</h1>
+
+<%= form_tag '/events', method: 'post' do %>
+  <label for="title">Title</label>
+  <input type="text" name="title">
+
+  <label for="location">Location</label>
+  <input type="text" name="location">
+
+  <div class="events_new game_tags">
+    <% @tags.each do |tag| %>
+      <input type="checkbox" name="<%= tag.name %>">
+      <label for="game-tags"><%= tag.name %></label>
+    <% end %>
+  </div>
+
+  <label for="category">Category</label>
+  <select>
+    <option value="" selected>Select a Category</option>
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"><%= category.name %></option>
+    <% end %>
+  </select>
+
+  <label for="about">About</label>
+  <textarea name="about"></textarea>
+
+  <button type="submit">Create Event</button>
+<% end %>
