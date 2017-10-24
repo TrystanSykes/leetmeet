@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Leetmeet</title>
+    <title>1337m337</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <header>
+      <ul>
+        <a href="/"><li>Home</li></a>
+        <a href="/events"><li>Events</li></a>
+      </ul>
+      <a href="/users/new"><button>Log In</button></a>
+    </header>
     <%= yield %>
+    <footer>
+      <p>copyright 1337m337 2017</p>
+    </footer>
   </body>
 </html>
