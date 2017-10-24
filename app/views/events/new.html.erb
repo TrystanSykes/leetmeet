@@ -8,9 +8,9 @@
   <input type="text" name="location">
 
   <div class="events_new game_tags">
-    <% @tags.each do |tag| %>
-      <input type="checkbox" name="<%= tag.name %>">
-      <label for="game-tags"><%= tag.name %></label>
+    <% @games.each do |game| %>
+      <input type="checkbox" name="<%= game.name %>">
+      <label for="game-tags"><%= game.name %></label>
     <% end %>
   </div>
 
