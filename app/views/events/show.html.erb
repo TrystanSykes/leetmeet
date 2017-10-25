@@ -52,20 +52,36 @@
   $joinEventBtn = $('.events_show_attending_click')
   $seeAttendeesBtn = $('.events_show_attendee_btn')
   $attendeesList = $('.events_show_attendees')
+  $authToken = $('meta[name=csrf-token]').attr('content');
 
   $seeAttendeesBtn.on('click', function() {
     $attendeesList.toggle('display_none')
   })
 
   $joinEventBtn.on('click', function(){
-    console.log('going')
+    console.log('check')
+    var options = {
+      url: '/api/attendees',
+      method: 'post',
+      data: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>, authenticity_token: $authToken }
+    };
+    $.ajax(options).done(function(response) {
+      console.log(response)
+    })
   })
+
+
 </script>
 
+<!-- 
 
+    <% @event.attendees.each do |attendee| %>
+      $li = $('<li>')
+      $li.val() = attendee.user.username
+      $attendeesList.append($li)
+    <% end %>
 
-
-
+ -->
 
 
 
