@@ -15,48 +15,96 @@
 
 </style>
 <script>
+  var genInfo = function(obj) {  
+    var container = document.createElement("div");
+    var title = document.createElement("h3")
+    var titleText = document.createTextNode(obj.title);
+    title.appendChild(titleText);
+    var about = document.createElement("p");
+    var aboutText = document.createTextNode('About: ' + obj.about);
+    about.appendChild(aboutText);
+    container.appendChild(title);
+    container.appendChild(about);
+    return container
+  }
+
+
+
   var locations = [{lat: -37.6, lng: 144.7}, {lat: -37.818573, lng: 145.1}, {lat: -37.818573, lng: 144.5}];
+
   function initMap() {
+
     var melbourne = {lat: -37.818573, lng: 144.9569066};
     var GA = {lat: -37.818573, lng: 144.9569066};
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 10,
       center: melbourne
     });
-    locations.forEach(function(location){
-      var marker = new google.maps.Marker({
-        position: location,
+
+    var options = {
+      url: '/api/events',
+      method: 'get',
+    }
+
+    var createMarkers = function(events) {
+      events.forEach(function(event) {
+        var marker = new google.maps.Marker({
+        position: event.location,
         map: map,
         title: 'Click to zoom'
-      });
-      marker.addListener('click', function() {
+        });
+        var contentObj = genInfo(event);
+        var infowindow = new google.maps.InfoWindow({
+        content: contentObj
+        });
+        marker.addListener('click', function() {
         // pop up event details window
-        map.setZoom(12);
+        infowindow.open(map, marker);
         map.setCenter(marker.getPosition());
-      });
-    });
+        });
+      })
+    }
+  $.ajax( options ).done( createMarkers );
   }
+
+
+    // locations.forEach(function(location){
+    //   var marker = new google.maps.Marker({
+    //     position: location,
+    //     map: map,
+    //     title: 'Click to zoom'
+    //   });
+
+    //   contentObj = genInfo({about: "blah blah blah something something", title: "An Excellent Name"})
+
+    //   var infowindow = new google.maps.InfoWindow({
+    //   content: contentObj
+    //   });
+    //   marker.addListener('click', function() {
+    //     // pop up event details window
+    //     infowindow.open(map, marker);
+    //     map.setCenter(marker.getPosition());
+    //   });
+    // });
+
 </script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&callback=initMap">
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<script>
-  var ajaxCall = function () {
+<!-- <script>
     var options = {
       url: '/api/events',
       method: 'get',
-      // data: {  }
     }
     var getEventsDetail = function( resp ){
       console.log(resp[0].location);
     }
     $.ajax( options ).done( getEventsDetail );
-  }
 
   $(document).ready(function () {
     ajaxCall();
   });
 
-</script>
+</script> -->
