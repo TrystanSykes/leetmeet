@@ -19,7 +19,7 @@
 
     <div class="location form_group_input">
       <label for="location">Location</label>
-      <input type="text" name="location" value="<%= @event.location %>">
+      <input type="text" id="search_places" name="location" value="<%= @event.location %>">
     </div>
 
     <div class="game_tags form_group_select">
@@ -53,3 +53,22 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+  function initAutocomplete() {
+    var input = document.getElementById('search_places');
+    var options = {
+      types: ['address'],
+      componentRestrictions: {country: "au"}
+    };
+
+    autocomplete = new google.maps.places.Autocomplete(input, options);
+
+    autocomplete.addListener('place_changed', function(){
+      var place = autocomplete.getPlace();
+    });
+  };
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&libraries=places&callback=initAutocomplete">
+</script>
