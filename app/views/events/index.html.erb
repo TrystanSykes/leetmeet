@@ -4,16 +4,16 @@
 
   <div class="events_index_filters">
     <span>Filter by game:</span>
-    <select name="" id="game_filter">
+    <select name="" class="game_filter">
       <% @games.each do |game| %>
-        <option value=""> <%= game.name %> </option>
+        <option value="<%= game.name %>"> <%= game.name %> </option>
       <% end %>
     </select>
   </div>
 
   <div class="events_index_event_list">
     <% @events.each do |event| %>
-      <div class="events_index_event">
+      <div data-value="<%= event.game.name %>" class="events_index_event">
         <a href="events/<%= event.id %>">
             <h3> <%= event.title %> </h3>
             <h4> <%= event.user.username %> </h4>
@@ -30,8 +30,17 @@
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
-  // $select = $('#game_filter')
-  // $select.change(function() {
-  //   $game = $select.val()
-  // });
+  $select = $('.game_filter');
+  $eventsContainer = $('.events_index_event_list');
+  $allEvents = $eventsContainer.children();
+
+  $select.on('change', function() {
+    $game = $select.val();
+    $allEvents.removeClass('display_none');
+    $allEvents.each(function() {
+      if ($(this).data('value') != $game) {
+        $(this).addClass("display_none")
+      }
+    })
+  });
 </script>
