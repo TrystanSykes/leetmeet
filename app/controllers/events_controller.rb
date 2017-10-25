@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
   def create
     event = Event.new
-    event.user_id = params[:user_id].to_i
+    event.user_id = sessions.current_user.id
     event.title = params[:title]
     event.location = params[:location]
     event.game_id = params[:game_id].to_i
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    event.user_id = params[:user_id].to_i
+    event.user_id = sessions.current_user.id
     event.title = params[:title]
     event.location = params[:location]
     event.game_id = params[:game_id].to_i
