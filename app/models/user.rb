@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :categories, through: :category_interests
   has_many :game_interests
   has_many :games, through: :game_interests
-  
+
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
