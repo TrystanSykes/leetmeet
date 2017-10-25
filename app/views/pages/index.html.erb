@@ -40,3 +40,23 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&callback=initMap">
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script>
+  var ajaxCall = function () {
+    var options = {
+      url: '/api/events',
+      method: 'get',
+      // data: {  }
+    }
+    var getEventsDetail = function( resp ){
+      console.log(resp[0].location);
+    }
+    $.ajax( options ).done( getEventsDetail );
+  }
+
+  $(document).ready(function () {
+    ajaxCall();
+  });
+
+</script>
