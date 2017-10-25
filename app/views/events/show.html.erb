@@ -23,7 +23,7 @@
   </div>
 
   <div class="events_show_middle">
-    <div class="events_show_attending_btn">Attending</div>
+    <div class="events_show_attending_btn">Join event</div>
     <ul>
       <% @event.attendees.each do |attendee| %>
         <li> <%= attendee.user.username %> </li>
@@ -37,4 +37,3 @@
   </div>
 
 </div>
-
