@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def new
-
+    @games = Game.all
+    @categories = Category.all
   end
 
   def create
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
     user.password = params[:password]
     user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
+
     if user.save
       redirect_to "/users/#{user.id}"
     else

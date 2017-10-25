@@ -20,6 +20,21 @@
 
     <div>Bio: <textarea name="bio"></textarea></div>
 
+    <div>Game List:
+      <% @games.each do | game | %>
+      <div>
+        <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
+      </div>
+      <% end %>
+    </div>
+
+    <div>Category List:
+      <% @categories.each do | category | %>
+      <div>
+        <input type="checkbox" name="category[<%= category.id %>]"><%= category.name %>
+      </div>
+      <% end %>
+    </div>
 
     <button class="button" type="submit">Create New User</button>
 
