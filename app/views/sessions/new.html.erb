@@ -1,0 +1,23 @@
+<div class="sessions_new_page">
+  <h2>Login</h2>
+
+  <% if @errors %>
+
+    <% @errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+
+  <% end %>
+
+  <%= form_tag '/sessions', method: 'post' do %>
+    <div>Email: <input type="text" name="email"></div>
+
+    <div>Password: <input type="password" name="password"></div>
+
+    <button class="button" type="submit">Log in</button>
+
+  <% end %>
+  </br>
+  <a href="/users/new"><h5>I don't have an account</h5></a>
+  </br>
+</div>
