@@ -3,19 +3,21 @@
 <div class="events_show">
 
   <div class="events_show_top">
-    <div class="events_show_map"></div><!--
- --><div class="events_show_info">
+    <div class="events_show_map">hi</div>
+    <div class="events_show_info">
       <div class="events_show_info_key">
         <h1>Event:</h1>
         <h2>Game:</h2>
         <h2>Created by:</h2>
         <h2>Category:</h2>
-      </div><!--
-   --><div class="events_show_info_value">
+        <h2>Address:</h2>
+      </div>
+      <div class="events_show_info_value">
         <h1> <%= @event.title %> </h1>
         <h2> <%= @event.game.name %> </h2>
         <h2> <%= @event.user.username %> </h2>
         <h2> <%= @event.category.name %> </h2>
+        <h2> <%= @event.location %> </h2>
       </div>
     </div>
   </div>
