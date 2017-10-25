@@ -10,7 +10,8 @@
 
   <div class="form_container">
     <%= form_tag "/events/#{@event.id}", method: :put do %>
-    <input type="hidden" name="user_id" value="1">
+    <input type="hidden" id="lat" name="lat">
+    <input type="hidden" id="long" name="long">
 
     <div class="title form_group_input">
       <label for="title">Title</label>
@@ -64,8 +65,15 @@
 
     autocomplete = new google.maps.places.Autocomplete(input, options);
 
-    autocomplete.addListener('place_changed', function(){
+    autocomplete.addListener('place_changed', function() {
       var place = autocomplete.getPlace();
+      var lat = place.geometry.location.lat();
+      var long = place.geometry.location.lng();
+      var latInput = document.getElementById('lat');
+      var longInput = document.getElementById('long');
+
+      latInput.value = lat;
+      longInput.value = long;
     });
   };
 </script>

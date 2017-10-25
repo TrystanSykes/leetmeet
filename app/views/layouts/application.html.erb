@@ -17,18 +17,18 @@
         </div>
         <nav id="nav">
           <div class="menu_left">
-            <a href="/">Home</a>
-            <a href="/events">Events</a>
-            <a href="/users">Users</a>
+            <a href="/" class="menu_links">Home</a>
+            <a href="/events" class="menu_links">Events</a>
+            <a href="/users" class="menu_links">Users</a>
           </div>
 
           <div class="menu_right">
             <% if logged_in?  %>
+              <p>Logged in as <a href="/users/<%= current_user.id %>" class="user_profile"><%= current_user.username %></a></p>
               <%= form_tag("/sessions/#{current_user.id}", method: :delete) do %>
                 <input type="hidden" name="_method" value="delete">
                 <button>Log Out</button>
               <% end %>
-              <p>Logged in as <%= current_user.username %></p>
             <% else %>
               <a href="/sessions/new">Log In</a>
             <% end %>

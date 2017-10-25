@@ -22,6 +22,8 @@ class EventsController < ApplicationController
     event.game_id = params[:game_id].to_i
     event.category_id = params[:category_id].to_i
     event.about = params[:about]
+    event.lat = params[:lat]
+    event.long = params[:long]
     event.active = true
     if event.save
       redirect_to "/events/#{event.id}"
@@ -47,6 +49,8 @@ class EventsController < ApplicationController
     event.game_id = params[:game_id].to_i
     event.category_id = params[:category_id].to_i
     event.about = params[:about]
+    event.lat = params[:lat]
+    event.long = params[:long]
     if event.save
       redirect_to "/events/#{event.id}"
     else
