@@ -22,9 +22,16 @@ class UsersController < ApplicationController
 
 
     if user.save
-      params[:category].keys.each do |cat_id, val|
-        CategoryInterest.new(category_id: cat_id, user_id: user.id)
+      params[:game].keys.each do |game_id, val|
+        game_interest = GameInterest.new(game_id: game_id, user_id: user.id)
+        game_interest.save
       end
+
+      params[:category].keys.each do |cat_id, val|
+        category_interest = CategoryInterest.new(category_id: cat_id, user_id: user.id)
+        category_interest.save
+      end
+
       redirect_to "/users/#{user.id}"
     else
       @errors = user.errors.full_messages
@@ -34,6 +41,9 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @games = Game.all
+    @categories = Category.all
+
   end
 
   def update
@@ -41,7 +51,18 @@ class UsersController < ApplicationController
     user.username = params[:username]
     user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
+
     if user.save
+      # params[:game].keys.each do |game_id, val|
+      #   game_interest = GameInterest.new(game_id: game_id, user_id: user.id)
+      #   game_interest.save
+      # end
+      #
+      # params[:category].keys.each do |cat_id, val|
+      #   category_interest = CategoryInterest.new(category_id: cat_id, user_id: user.id)
+      #   category_interest.save
+      # end
+
       redirect_to "/users/#{user.id}"
     else
       @errors = user.errors.full_messages

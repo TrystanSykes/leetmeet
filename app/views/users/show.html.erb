@@ -2,6 +2,24 @@
   <h1><%= @user.username %></h1><span><%= @user.reputation %></span>
   <img src="<%= @user.avatar_url %>" alt="">
   <p><%= @user.bio %></p>
+
+  <div>Game List:
+    <% @user.game_interests.each do | game_interest | %>
+    <div>
+      <%= game_interest.game.name %>
+    </div>
+    <% end %>
+  </div>
+
+  <div>Game List:
+    <% @user.category_interests.each do | cat_interest | %>
+    <div>
+      <%= cat_interest.category.name %>
+    </div>
+    <% end %>
+  </div>
+
+
   <a href="/users/<%= @user.id %>/edit"><button>Edit</button></a>
   <a href="/users/delete/<%= @user.id %>"><button>Delete</button></a>
 </div>

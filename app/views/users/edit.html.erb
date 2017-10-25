@@ -16,6 +16,31 @@
 
     <div>Bio: <textarea name="bio"><%= @user.bio %></textarea></div>
 
+    <div>Game List:
+      <% @games.each do | game | %>
+        <div>
+        <% if @user.game_interests.find_by(game_id: game.id).nil? %>
+          <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
+        <%  else %>
+          <input type="checkbox" name="game[<%= game.id %>]" checked><%= game.name %>
+        <%  end %>
+      </div>
+      <% end %>
+    </div>
+
+    <div>Category List:
+      <% @categories.each do | category | %>
+        <div>
+        <% if @user.category_interests.find_by(category_id: category.id).nil? %>
+          <input type="checkbox" name="category[<%= category.id %>]"><%= category.name %>
+        <%  else %>
+          <input type="checkbox" name="category[<%= category.id %>]" checked><%= category.name %>
+        <%  end %>
+      </div>
+      <% end %>
+    </div>
+
+
 
     <button class="button" type="submit">Update Profile</button>
 
