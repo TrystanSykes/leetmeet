@@ -23,7 +23,11 @@
   </div>
 
   <div class="events_show_middle">
+    <% if logged_in? %>
     <div class="events_show_attending_btn">Join event</div>
+    <% else %>
+      <div class="events_show_attending_btn">Login to join!</div>
+    <% end %>
     <ul>
       <% @event.attendees.each do |attendee| %>
         <li> <%= attendee.user.username %> </li>
