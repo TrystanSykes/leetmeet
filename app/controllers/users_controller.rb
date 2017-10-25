@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def new
-
+    @games = Game.all
+    @categories = Category.all
   end
 
   def create
@@ -18,7 +19,12 @@ class UsersController < ApplicationController
     user.password = params[:password]
     user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
+
+    byebug
     if user.save
+      params[:category].keys.each do |cat_id, val|
+        CategoryInterest.new(category_id: cat_id, user_id: user.id)
+      end
       redirect_to "/users/#{user.id}"
     else
       @errors = user.errors.full_messages
