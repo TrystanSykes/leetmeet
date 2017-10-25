@@ -1,23 +1,39 @@
 <h1>1337M337</h1>
-
+<div class="pages_index_container">
 <div id="map"></div>
+</div>
 <style>
   #map {
-  height: 80%;
-  width: 80%;
+  height: 70%;
+  width: 70%;
+  margin: 0 auto;
        }
+  .pages_index_container {
+    height: 100vh;
+    width: 100vw;
+  }
+
 </style>
 <script>
+  var locations = [{lat: -37.6, lng: 144.7}, {lat: -37.818573, lng: 145.1}, {lat: -37.818573, lng: 144.5}];
   function initMap() {
-    var melbourne = {lat: -37.9701541, lng: 144.4926951};
+    var melbourne = {lat: -37.818573, lng: 144.9569066};
     var GA = {lat: -37.818573, lng: 144.9569066};
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 4,
+      zoom: 10,
       center: melbourne
     });
-    var marker = new google.maps.Marker({
-      position: GA,
-      map: map
+    locations.forEach(function(location){
+      var marker = new google.maps.Marker({
+        position: location,
+        map: map,
+        title: 'Click to zoom'
+      });
+      marker.addListener('click', function() {
+        // pop up event details window
+        map.setZoom(12);
+        map.setCenter(marker.getPosition());
+      });
     });
   }
 </script>
