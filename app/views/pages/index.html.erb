@@ -1,19 +1,28 @@
-<h1>1337M337</h1>
-<div class="pages_index_container">
-<div id="map"></div>
-</div>
-<style>
-  #map {
-  height: 70%;
-  width: 70%;
-  margin: 0 auto;
-       }
-  .pages_index_container {
-    height: 100vh;
-    width: 100vw;
-  }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-</style>
+<div class="pages_index_container">
+  <div class="pages_index_filters">
+    <span>Filter by game:</span>
+    <select name="" class="game_filter">
+      <% @games.each do |game| %>
+        <option value="<%= game.name %>"> <%= game.name %> </option>
+      <% end %>
+    </select>
+  </div>
+  <div class="pages_index_filters">
+    <span>Filter by category:</span>
+    <select name="" class="category_filter">
+      <% @categories.each do |category| %>
+        <option value="<%= category.name %>"> <%= category.name %> </option>
+      <% end %>
+    </select>
+  </div>
+  <div class="pages_index_map_container">
+    <div id="map"></div>
+  </div>
+</div>
+
+
 <script>
   var genInfo = function(obj) {  
     var container = document.createElement("div");
@@ -21,16 +30,20 @@
     var titleText = document.createTextNode(obj.title);
     title.appendChild(titleText);
     var about = document.createElement("p");
-    var aboutText = document.createTextNode('About: ' + obj.about);
+    var aboutText = document.createTextNode(obj.about);
+    var location = document.createElement("p");
+    var locationText = document.createTextNode(obj.location); 
+    location.appendChild(locationText);
+    var link = document.createElement("a");
+    link.href = "/events/" + obj.id
+    link.text = 'Go to event page'
     about.appendChild(aboutText);
     container.appendChild(title);
     container.appendChild(about);
+    container.appendChild(location);
+    container.appendChild(link);
     return container
   }
-
-
-
-  var locations = [{lat: -37.6, lng: 144.7}, {lat: -37.818573, lng: 145.1}, {lat: -37.818573, lng: 144.5}];
 
   function initMap() {
 
@@ -49,10 +62,15 @@
     var createMarkers = function(events) {
       events.forEach(function(event) {
         var position = {lat: event.lat, lng: event.long}
+        var sc2Icon = "<%= asset_path('sc2.png') %>";
         var marker = new google.maps.Marker({
         position: position,
         map: map,
-        title: 'Click to zoom'
+        title: 'Click for details',
+        icon: {
+          scaledSize: new google.maps.Size(40, 40),
+          url: sc2Icon 
+        }
         });
         var contentObj = genInfo(event);
         var infowindow = new google.maps.InfoWindow({
@@ -60,8 +78,8 @@
         });
         marker.addListener('click', function() {
         // pop up event details window
-        infowindow.open(map, marker);
-        map.setCenter(marker.getPosition());
+          infowindow.open(map, marker);
+          map.setCenter(marker.getPosition());
         });
       })
     }
@@ -72,7 +90,6 @@
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&callback=initMap">
 </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <!-- <script>
     var options = {
