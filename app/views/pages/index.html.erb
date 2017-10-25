@@ -48,8 +48,9 @@
 
     var createMarkers = function(events) {
       events.forEach(function(event) {
+        var position = {lat: event.lat, lng: event.long}
         var marker = new google.maps.Marker({
-        position: event.location,
+        position: position,
         map: map,
         title: 'Click to zoom'
         });
@@ -66,26 +67,6 @@
     }
   $.ajax( options ).done( createMarkers );
   }
-
-
-    // locations.forEach(function(location){
-    //   var marker = new google.maps.Marker({
-    //     position: location,
-    //     map: map,
-    //     title: 'Click to zoom'
-    //   });
-
-    //   contentObj = genInfo({about: "blah blah blah something something", title: "An Excellent Name"})
-
-    //   var infowindow = new google.maps.InfoWindow({
-    //   content: contentObj
-    //   });
-    //   marker.addListener('click', function() {
-    //     // pop up event details window
-    //     infowindow.open(map, marker);
-    //     map.setCenter(marker.getPosition());
-    //   });
-    // });
 
 </script>
 <script async defer
