@@ -3,7 +3,7 @@
 <div class="events_show">
 
   <div class="events_show_top">
-    <div class="events_show_map">hi</div>
+    <div class="events_show_map">map goes here</div>
     <div class="events_show_info">
       <div class="events_show_info_key">
         <h1>Event:</h1>
@@ -23,12 +23,12 @@
   </div>
 
   <div class="events_show_middle">
-    <div class="events_show_attending_btn">Attending</div>
-    <ul>
-      <% @event.attendees.each do |attendee| %>
-        <li> <%= attendee.user.username %> </li>
-      <% end %>
-    </ul>
+    <% if logged_in? %>
+    <div class="events_show_attending_btn events_show_attending_click">Join event</div>
+    <% else %>
+      <div class="events_show_attending_btn">Login to join!</div>
+    <% end %>
+    <div class="events_show_attendee_btn"> See who's going</div>
   </div>
 
   <div class="events_show_about">
@@ -37,4 +37,35 @@
   </div>
 
 </div>
+<div class="events_show_attendees display_none">
+  <ul class="events_show_attendee_list">
+    <% @event.attendees.each do |attendee| %>
+    <li class="events_show_attendee">
+      <%= attendee.user.username %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<script>
+  $joinEventBtn = $('.events_show_attending_click')
+  $seeAttendeesBtn = $('.events_show_attendee_btn')
+  $attendeesList = $('.events_show_attendees')
+
+  $seeAttendeesBtn.on('click', function() {
+    $attendeesList.toggle('display_none')
+  })
+
+  $joinEventBtn.on('click', function(){
+    console.log('going')
+  })
+</script>
+
+
+
+
+
+
+
 
