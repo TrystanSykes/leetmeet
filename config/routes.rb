@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/games/new', to: 'games#new'
+  post '/games', to: 'games#create'
+
   get '/about', to: 'pages#about'
   get '/events/delete/:id', to: 'events#delete'
   resources :events
