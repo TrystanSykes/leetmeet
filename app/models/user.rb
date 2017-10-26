@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates :password, on: :create, presence: true, length: { minimum: 8 } 
+  validates :password, on: :create, presence: true, length: { minimum: 8 }
 
 
   def update_rep
