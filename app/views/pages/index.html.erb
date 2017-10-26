@@ -4,26 +4,29 @@
   <div class="pages_index_filters">
     <span>Filter by game:</span>
     <select name="" class="game_filter">
+        <option value="all">all</option>
       <% @games.each do |game| %>
         <option value="<%= game.name %>"> <%= game.name %> </option>
       <% end %>
     </select>
-  </div>
-  <div class="pages_index_filters">
+  <!-- <div class="pages_index_filters">
     <span>Filter by category:</span>
     <select name="" class="category_filter">
+        <option value="all">all</option>
       <% @categories.each do |category| %>
         <option value="<%= category.name %>"> <%= category.name %> </option>
       <% end %>
     </select>
-  </div>
+  </div> -->
+</div>
+  
   <div class="pages_index_map_container">
     <div id="map"></div>
   </div>
-</div>
 
 
 <script>
+  var markers = [];
   var genInfo = function(obj) {  
     var container = document.createElement("div");
     var title = document.createElement("h3")
@@ -50,7 +53,7 @@
     var melbourne = {lat: -37.818573, lng: 144.9569066};
     var GA = {lat: -37.818573, lng: 144.9569066};
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
+      zoom: 13,
       center: melbourne
     });
 
@@ -81,28 +84,29 @@
           infowindow.open(map, marker);
           map.setCenter(marker.getPosition());
         });
+        markers.push(marker)
       })
     }
   $.ajax( options ).done( createMarkers );
   }
+  $select = $('.game_filter');
+  $eventsContainer = $('.events_index_event_list');
+  $allEvents = $eventsContainer.children();
+
+  $select.on('change', function() {
+    markers.forEach(function(marker){
+      marker.setMap(null);
+    })
+
+
+    
+
+    
+  });
+
 
 </script>
+
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&callback=initMap">
 </script>
-
-<!-- <script>
-    var options = {
-      url: '/api/events',
-      method: 'get',
-    }
-    var getEventsDetail = function( resp ){
-      console.log(resp[0].location);
-    }
-    $.ajax( options ).done( getEventsDetail );
-
-  $(document).ready(function () {
-    ajaxCall();
-  });
-
-</script> -->
