@@ -10,8 +10,8 @@
 
   <div class="form_container">
     <%= form_tag "/events/#{@event.id}", method: :put do |f| %>
-    <input type="hidden" id="lat" name="lat">
-    <input type="hidden" id="long" name="long">
+    <input type="hidden" id="lat" name="lat" value="<%= @event.lat %>">
+    <input type="hidden" id="long" name="long" value="<%= @event.long %>">
 
     <div class="title form_group_input">
       <label for="title">Title</label>
