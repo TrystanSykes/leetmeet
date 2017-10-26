@@ -15,4 +15,11 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 8 }
   validates :avatar_url, presence: true
 
+  def update_rep
+    votes = Vote.where(recipient_id: self.id).pluck(:value)
+    votes = votes.map(&:to_i)
+    self.reputation = votes.sum
+    self.save
+  end
+
 end

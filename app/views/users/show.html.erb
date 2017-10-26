@@ -1,5 +1,9 @@
 <div class="user_show_container">
-  <h1><%= @user.username %></h1><span><%= @user.reputation %></span>
+  <h1><%= @user.username %></h1>
+  <span id="rep_box">Reputation: <%= @user.reputation %></span>
+  <% if logged_in? %>
+    <span><button id="upvote">Upvote</button></span><button id="downvote">Downvote</button></span>
+  <% end %>
   <img src="<%= @user.avatar_url %>" alt="">
   <p><%= @user.bio %></p>
 
@@ -27,3 +31,28 @@
   <a href="/users/<%= @user.id %>/edit"><button>Edit</button></a>
   <a href="/users/delete/<%= @user.id %>"><button>Delete</button></a>
 </div>
+
+<script>
+  $('#upvote').on('click', function(){
+
+    var options = {
+      url: '/api/votes',
+      method: 'post',
+      data: { 
+        recipient_id: <%= @user.id %>,
+        voter_id: <%= current_user.id %>,
+        value: 1
+      }
+    }
+
+    var updateRep = function(resp) {
+      if resp.reputation
+        $('#rep_box').text('Reputation: ' + resp.reputation)
+    }
+
+    $.ajax(options).done(updateRep);
+  });
+
+
+
+</script>
