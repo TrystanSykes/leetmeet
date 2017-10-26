@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     # user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
     user.avatar = params[:image]
-
+    
     if user.save
 
       if params[:game]
