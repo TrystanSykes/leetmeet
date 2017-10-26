@@ -70,19 +70,26 @@
   })
   <% if logged_in? %>
     $joinEventBtn.on('click', function(){
+      var attending = false
+      <% @event.attendees.each do |attendee| %>
+        <% if attendee.user.username == current_user.username %> 
+          attending = true
+        <% end %>
+      <% end %>
       console.log('check')
-      var options = {
-        url: '/api/attendees',
-        method: 'post',
-        data: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>, authenticity_token: $authToken }
-      };
-      $.ajax(options).done(function(response) {
-        console.log(response)
-        var $li = $('<li>', {"class": "events_show_attendee"})
-        $li.text(response.username)
-        $attendeesUList.append($li)
-      })
-      
+      if (attending == false) {
+        var options = {
+          url: '/api/attendees',
+          method: 'post',
+          data: {user_id: <%= current_user.id %>, event_id: <%= @event.id %>, authenticity_token: $authToken }
+        };
+        $.ajax(options).done(function(response) {
+          console.log(response)
+          var $li = $('<li>', {"class": "events_show_attendee"})
+          $li.text(response.username)
+          $attendeesUList.append($li)
+        })
+      }
     })
     <% end %>
 </script>
