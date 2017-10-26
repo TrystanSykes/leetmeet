@@ -1,0 +1,9 @@
+
+<h2>Add a game</h2>
+
+<%= form_tag '/games', method: 'post', enctype: "multipart/form-data" do %>
+    <div>Game Name: <input type="text" name="name"></div>
+    <div>Game Logo: <input type="file" name="image"></div>
+    <button class="button" type="submit">Create New Game</button>
+
+  <% end %>
