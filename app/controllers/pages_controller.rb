@@ -4,4 +4,8 @@ class PagesController < ApplicationController
     @games = Game.all
     @categories = Category.all
   end
+
+  def about
+    
+  end
 end

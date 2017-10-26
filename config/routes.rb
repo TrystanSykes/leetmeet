@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/about', to: 'pages#about'
   get '/events/delete/:id', to: 'events#delete'
   resources :events
   get '/users/delete/:id', to: 'users#delete'
