@@ -1,5 +1,3 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
 <div class="events_index">
 
   <div class="events_index_filters">
@@ -20,8 +18,6 @@
             <h4> <%= event.location %> </h4>
             <h4> <%= event.game.name %> </h4>
             <h4> <%= event.category.name %> </h4>
-            <a href="events/delete/<%= event.id %>">delete</a>
-            <a href="events/<%= event.id %>/edit">edit</a>
         </a>
       </div>       
     <% end %>    

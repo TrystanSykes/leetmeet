@@ -9,7 +9,7 @@
 
   <% end %>
 
-  <%= form_tag '/users', method: 'post' do %>
+  <%= form_tag '/users', method: 'post', enctype: "multipart/form-data" do %>
     <div>Username: <input type="text" name="username"></div>
 
     <div>Email: <input type="text" name="email"></div>
@@ -35,6 +35,8 @@
       </div>
       <% end %>
     </div>
+
+    <div>Avatar CW Url: <input type="file" name="image"></div>
 
     <button class="button" type="submit">Create New User</button>
 
