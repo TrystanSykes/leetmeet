@@ -5,7 +5,7 @@
   <% if logged_in? %>
     <span id="vote_buttons"><span><button id="upvote">Upvote</button></span><span><button id="downvote">Downvote</button></span></span>
   <% end %>
-  <img src="<%= @user.avatar_url %>" alt="">
+  <img src="<%= @user.avatar.url %>" alt="">
 
   <p><%= @user.bio %></p>
 
@@ -43,7 +43,7 @@
       var options = {
         url: '/api/votes',
         method: 'post',
-        data: { 
+        data: {
           recipient_id: <%= @user.id %>,
           voter_id: <%= current_user.id %>,
           value: 1,
@@ -54,7 +54,7 @@
       var options = {
         url: '/api/votes',
         method: 'post',
-        data: { 
+        data: {
           recipient_id: <%= @user.id %>,
           voter_id: <%= current_user.id %>,
           value: -1,
@@ -63,7 +63,7 @@
       }
     } else {
         return
-      } 
+      }
 
 
     var updateRep = function(resp) {

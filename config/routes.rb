@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/games/new', to: 'games#new'
+  get '/games/:id', to: 'games#show'
   post '/games', to: 'games#create'
 
   get '/about', to: 'pages#about'

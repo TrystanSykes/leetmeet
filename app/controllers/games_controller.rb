@@ -3,9 +3,14 @@ class GamesController < ApplicationController
 
   end
 
+  def show
+    @game = Game.find(params[:id])
+  end
+
   def create
     game = Game.new
-    game.game_logo = params[:logo]
+    game.name = params[:name]
+    game.logo = params[:image]
     game.save
   end
 end
