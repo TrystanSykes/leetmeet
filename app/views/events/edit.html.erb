@@ -9,7 +9,7 @@
   <% end %>
 
   <div class="form_container">
-    <%= form_tag "/events/#{@event.id}", method: :put do %>
+    <%= form_tag "/events/#{@event.id}", method: :put do |f| %>
     <input type="hidden" id="lat" name="lat">
     <input type="hidden" id="long" name="long">
 
@@ -21,6 +21,16 @@
     <div class="location form_group_input">
       <label for="location">Location</label>
       <input type="text" id="search_places" name="location" value="<%= @event.location %>">
+    </div>
+
+    <div class="date form_group_date">
+      <label for="start_at">Start</label>
+      <input type="datetime-local" name="start_at" value="<%= @event_start %>">
+    </div>
+
+    <div class="date form_group_date">
+      <label for="end_at">End</label>
+      <input type="datetime-local" name="end_at" value="<%= @event_end %>">
     </div>
 
     <div class="game_tags form_group_select">
