@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
+
 ActiveRecord::Schema.define(version: 20171026062908) do
 
 
@@ -79,7 +80,6 @@ ActiveRecord::Schema.define(version: 20171026062908) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.text "avatar_url"
     t.text "bio"
     t.integer "reputation"
     t.datetime "created_at", null: false
