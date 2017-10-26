@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
     @games = Game.all
     @categories = Category.all
   end
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
     user.password = params[:password]
     user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
+    user.avatar = params[:image]
 
     if user.save
 

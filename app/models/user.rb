@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :categories, through: :category_interests
   has_many :game_interests
   has_many :games, through: :game_interests
+  mount_uploader :avatar, AvatarUploader
+
 
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
