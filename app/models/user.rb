@@ -12,8 +12,8 @@ class User < ApplicationRecord
   validates :username, uniqueness: true, presence: true
   validates :email, uniqueness: true, presence: true
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
-  validates :password, presence: true, length: { minimum: 8 }
-  validates :avatar_url, presence: true
+  validates :password, on: :create, presence: true, length: { minimum: 8 } 
+
 
   def update_rep
     votes = Vote.where(recipient_id: self.id).pluck(:value)
