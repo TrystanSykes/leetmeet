@@ -40,6 +40,12 @@ header
     .menu_links
     {
       margin: 0px 10px;
+
+      &:hover
+      {
+        color: white;
+        text-decoration: underline;
+      }
     }
 
     .menu_right
@@ -49,6 +55,12 @@ header
       .user_profile
       {
         margin-right: 10px;
+
+        &:hover
+        {
+          color: white;
+          text-decoration: underline;
+        }
       }
     }
   }

@@ -39,8 +39,8 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
-    # @event_start = @event.start_at.strftime('%Y-%m-%dT%H:%M')
-    # @event_end = @event.end_at.strftime('%Y-%m-%dT%H:%M')
+    @event_start = @event.start_at.strftime('%Y-%m-%dT%H:%M')
+    @event_end = @event.end_at.strftime('%Y-%m-%dT%H:%M')
     @games = Game.all
     @categories = Category.all
   end
