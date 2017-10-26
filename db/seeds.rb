@@ -9,7 +9,7 @@
 u = User.new
 u.username = "Trippa"
 u.email = "trystansykes@gmail.com"
-u.password = "pudding"
+u.password = "puddings"
 u.avatar_url = "https://i.pinimg.com/originals/77/42/21/774221482ea2d1272669fdadce968807.png"
 u.bio = "I'm a Starcraft 2 and Dota 2 player primarily but def don't mind a bit of FPS now and then. Also a VR enthustiast. Interested in playing games and also watching esports events."
 u.save
