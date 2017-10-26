@@ -20,7 +20,6 @@ class UsersController < ApplicationController
     user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
 
-
     if user.save
       params[:game].keys.each do |game_id, val|
         game_interest = GameInterest.new(game_id: game_id, user_id: user.id)
@@ -35,6 +34,8 @@ class UsersController < ApplicationController
       redirect_to "/users/#{user.id}"
     else
       @errors = user.errors.full_messages
+      @games = Game.all
+      @categories = Category.all
       render :new
     end
   end
@@ -43,7 +44,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @games = Game.all
     @categories = Category.all
-
   end
 
   def update
@@ -52,20 +52,25 @@ class UsersController < ApplicationController
     user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
 
-    if user.save
-      # params[:game].keys.each do |game_id, val|
-      #   game_interest = GameInterest.new(game_id: game_id, user_id: user.id)
-      #   game_interest.save
-      # end
-      #
-      # params[:category].keys.each do |cat_id, val|
-      #   category_interest = CategoryInterest.new(category_id: cat_id, user_id: user.id)
-      #   category_interest.save
-      # end
+    if params[:game]
+      user.game_ids = params[:game].keys
+    else
+      user.game_ids = []
+    end
 
+    if params[:category]
+      user.category_ids = params[:category].keys
+    else
+      user.category_ids = []
+    end
+
+    if user.save
       redirect_to "/users/#{user.id}"
     else
       @errors = user.errors.full_messages
+      @user = User.find(params[:id])
+      @games = Game.all
+      @categories = Category.all
       render :edit
     end
   end
