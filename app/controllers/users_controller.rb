@@ -21,14 +21,19 @@ class UsersController < ApplicationController
     user.bio = params[:bio]
 
     if user.save
-      params[:game].keys.each do |game_id, val|
-        game_interest = GameInterest.new(game_id: game_id, user_id: user.id)
-        game_interest.save
+
+      if params[:game]
+        params[:game].keys.each do |game_id, val|
+          game_interest = GameInterest.new(game_id: game_id, user_id: user.id)
+          game_interest.save
+        end
       end
 
-      params[:category].keys.each do |cat_id, val|
-        category_interest = CategoryInterest.new(category_id: cat_id, user_id: user.id)
-        category_interest.save
+      if params[:category]
+        params[:category].keys.each do |cat_id, val|
+          category_interest = CategoryInterest.new(category_id: cat_id, user_id: user.id)
+          category_interest.save
+        end
       end
 
       redirect_to "/users/#{user.id}"
@@ -39,6 +44,7 @@ class UsersController < ApplicationController
       render :new
     end
   end
+
 
   def edit
     @user = User.find(params[:id])
