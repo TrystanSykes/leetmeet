@@ -9,10 +9,10 @@
 
   <% end %>
 
-  <%= form_tag("/users/#{@user.id}", method: :put) do %>
+  <%= form_tag("/users/#{@user.id}", method: :put, enctype: "multipart/form-data") do %>
     <div>Username: <input type="text" name="username" value="<%= @user.username %>"></div>
 
-    <div>Avatar: <textarea name="avatar_url"><%= @user.avatar_url %></textarea></div>
+    <!-- <div>Avatar: <textarea name="avatar_url"><%= @user.avatar_url %></textarea></div> -->
 
     <div>Bio: <textarea name="bio"><%= @user.bio %></textarea></div>
 
@@ -40,7 +40,9 @@
       <% end %>
     </div>
 
+    <div>Avatar: <img src="<%= @user.avatar.url %>" alt=""></div>
 
+    <div>Avatar CW Url: <input type="file" name="image"></div>
 
     <button class="button" type="submit">Update Profile</button>
 

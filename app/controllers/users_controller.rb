@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     user.username = params[:username]
     user.email = params[:email]
     user.password = params[:password]
-    user.avatar_url = params[:avatar_url]
+    # user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
     user.avatar = params[:image]
 
@@ -57,8 +57,9 @@ class UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     user.username = params[:username]
-    user.avatar_url = params[:avatar_url]
+    # user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
+    user.avatar = params[:image]
 
     if params[:game]
       user.game_ids = params[:game].keys

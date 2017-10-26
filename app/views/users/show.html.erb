@@ -1,6 +1,6 @@
 <div class="user_show_container">
   <h1><%= @user.username %></h1><span><%= @user.reputation %></span>
-  <img src="<%= @user.avatar_url %>" alt="">
+  <img src="<%= @user.avatar.url %>" alt="">
   <p><%= @user.bio %></p>
 
   <% if @user.game_interests[0] %>
