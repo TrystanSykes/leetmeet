@@ -28,6 +28,10 @@ end
 class AvatarUploader < CarrierWave::Uploader::Base
 end
 
+class LogoUploader < CarrierWave::Uploader::Base
+end
+
 class Post < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
+  mount_uploader :logo, LogoUploader
 end
