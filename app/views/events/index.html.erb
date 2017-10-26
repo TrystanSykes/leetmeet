@@ -3,10 +3,14 @@
   <div class="events_index_filters">
     <span>Filter by game:</span>
     <select name="" class="game_filter">
+        <option value="all">all</option>
       <% @games.each do |game| %>
         <option value="<%= game.name %>"> <%= game.name %> </option>
       <% end %>
     </select>
+    <% if logged_in? %>
+      <a href="/events/new"><div>create event</div></a>
+    <% end %>
   </div>
 
   <div class="events_index_event_list">
@@ -34,9 +38,20 @@
     $game = $select.val();
     $allEvents.removeClass('display_none');
     $allEvents.each(function() {
-      if ($(this).data('value') != $game) {
+      if ($(this).data('value') != $game && $game != 'all') {
         $(this).addClass("display_none")
       }
     })
   });
 </script>
+
+
+
+
+
+
+
+
+
+
+
