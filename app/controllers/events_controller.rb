@@ -19,6 +19,8 @@ class EventsController < ApplicationController
     event.user_id = current_user.id
     event.title = params[:title]
     event.location = params[:location]
+    event.start_at = params[:start_at]
+    event.end_at = params[:end_at]
     event.game_id = params[:game_id].to_i
     event.category_id = params[:category_id].to_i
     event.about = params[:about]
@@ -37,6 +39,8 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    # @event_start = @event.start_at.strftime('%Y-%m-%dT%H:%M')
+    # @event_end = @event.end_at.strftime('%Y-%m-%dT%H:%M')
     @games = Game.all
     @categories = Category.all
   end
@@ -46,6 +50,8 @@ class EventsController < ApplicationController
     event.user_id = current_user.id
     event.title = params[:title]
     event.location = params[:location]
+    event.start_at = params[:start_at]
+    event.end_at = params[:end_at]
     event.game_id = params[:game_id].to_i
     event.category_id = params[:category_id].to_i
     event.about = params[:about]

@@ -1,6 +1,12 @@
 <div class="user_show_container">
-  <h1><%= @user.username %></h1><span><%= @user.reputation %></span>
-  <img src="<%= @user.avatar.url %>" alt="">
+
+  <h1><%= @user.username %></h1>
+  <span id="rep_box">Reputation: <%= @user.reputation %></span>
+  <% if logged_in? %>
+    <span id="vote_buttons"><span><button id="upvote">Upvote</button></span><span><button id="downvote">Downvote</button></span></span>
+  <% end %>
+  <img src="<%= @user.avatar_url %>" alt="">
+
   <p><%= @user.bio %></p>
 
   <% if @user.game_interests[0] %>
@@ -27,3 +33,49 @@
   <a href="/users/<%= @user.id %>/edit"><button>Edit</button></a>
   <a href="/users/delete/<%= @user.id %>"><button>Delete</button></a>
 </div>
+
+<script>
+  $authToken = $('meta[name=csrf-token]').attr('content');
+  <% if logged_in? %>
+  $('#vote_buttons').on('click', function(event){
+
+    if (event.target.id === "upvote") {
+      var options = {
+        url: '/api/votes',
+        method: 'post',
+        data: { 
+          recipient_id: <%= @user.id %>,
+          voter_id: <%= current_user.id %>,
+          value: 1,
+          authenticity_token: $authToken
+        }
+      }
+    } else if (event.target.id === "downvote") {
+      var options = {
+        url: '/api/votes',
+        method: 'post',
+        data: { 
+          recipient_id: <%= @user.id %>,
+          voter_id: <%= current_user.id %>,
+          value: -1,
+          authenticity_token: $authToken
+        }
+      }
+    } else {
+        return
+      } 
+
+
+    var updateRep = function(resp) {
+      if(resp.reputation) {
+        $('#rep_box').text('Reputation: ' + resp.reputation)
+      }
+    }
+
+    $.ajax(options).done(updateRep);
+  });
+  <% end %>
+
+
+
+</script>
