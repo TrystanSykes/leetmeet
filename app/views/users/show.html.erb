@@ -33,6 +33,7 @@
 </div>
 
 <script>
+  $authToken = $('meta[name=csrf-token]').attr('content');
   $('#upvote').on('click', function(){
 
     var options = {
@@ -41,13 +42,15 @@
       data: { 
         recipient_id: <%= @user.id %>,
         voter_id: <%= current_user.id %>,
-        value: 1
+        value: 1,
+        authenticity_token: $authToken
       }
     }
 
     var updateRep = function(resp) {
-      if resp.reputation
+      if(resp.reputation) {
         $('#rep_box').text('Reputation: ' + resp.reputation)
+      }
     }
 
     $.ajax(options).done(updateRep);
