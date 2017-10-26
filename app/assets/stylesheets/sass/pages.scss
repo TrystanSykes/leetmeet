@@ -1,0 +1,30 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#map {
+  height: 95%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.pages_index_map_container {
+  padding-top: 20px;
+  height: 80vh;
+  background-color: grey;
+  color: black;
+}
+
+.pages_index_map_container a {
+  color: red;
+}
+
+.pages_index_container {
+  background-color: grey;
+  color: white;
+}
+
+.pages_index_filters {
+  display: inline-block;
+}
+
