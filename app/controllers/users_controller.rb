@@ -21,7 +21,9 @@ class UsersController < ApplicationController
     # user.avatar_url = params[:avatar_url]
     user.bio = params[:bio]
     user.avatar = params[:image]
-    
+    uploader = AvatarUploader.new
+    uploader.store!(user.avatar)
+
     if user.save
 
       if params[:game]
