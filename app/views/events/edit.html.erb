@@ -1,7 +1,4 @@
 <div class="events_edit">
-  <h1>Events#edit</h1>
-  <p>Find me in app/views/events/edit.html.erb</p>
-
   <% if @errors %>
     <% @errors.each do |error| %>
       <p class="errors"><%= error %></p>
@@ -59,7 +56,7 @@
     </div>
 
     <div class="edit_event form_group_submit">
-      <button type="submit">Edit Event</button>
+      <button type="submit" class="btn_submit">Edit Event</button>
     </div>
     <% end %>
   </div>

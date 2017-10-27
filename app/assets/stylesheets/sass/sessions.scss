@@ -4,6 +4,7 @@
 .sessions_new_page {
   width: 60%;
   margin: 0 auto;
+  padding: 50px 0;
 }
 
 .sessions_new_page input[type=text],
@@ -18,18 +19,9 @@
   background-color: #f8f8f8;
 }
 
-.sessions_new_page .button {
-  /* Green */
-  background-color: #4CAF50;
-
-  border: none;
-  color: white;
-  padding: 10px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
+.user_log_in {
+  color: black;
+  padding: 10px 20px;
+  margin-top: 20px;
+  font-size: 30px;
 }

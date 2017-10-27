@@ -5,9 +5,6 @@
 </style>
 
 <div class="events_new">
-  <h1>Events#new</h1>
-  <p>Find me in app/views/events/new.html.erb</p>
-
   <% if @errors %>
     <% @errors.each do |error| %>
       <p class="errors"><%= error %></p>
@@ -63,7 +60,7 @@
     </div>
 
     <div class="create_event form_group_submit">
-      <button type="submit">Create Event</button>
+      <button type="submit" class="btn_submit">Create Event</button>
     </div>
     <% end %>
   </div>
