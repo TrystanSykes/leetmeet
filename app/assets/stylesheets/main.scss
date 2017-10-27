@@ -1,9 +1,8 @@
 // Main Layout
 body
 {
-  background: mistyrose;
+  background: black;
   height: 100vh;
-  // width: 100vw;
 }
 
 // Text
@@ -15,7 +14,7 @@ body
 // Header
 header
 {
-  background: papayawhip;
+  color: white;
 }
 
 .main_menu_container
@@ -25,22 +24,29 @@ header
   margin: 0 auto;
   padding: 20px 30px;
   width: 100%;
-
   .logo_container
   {
-    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 25%;
+    .page_title
+    {
+      font-size: 50px;
+    }
   }
 
   nav
   {
     display: flex;
+    align-items: center;
     justify-content: space-around;
-    width: 70%;
-
+    width: 75%;
     .menu_links
     {
-      margin: 0px 10px;
-
+      font-size: 30px;
+      font-weight: 900;
+      margin: 0px 30px;
       &:hover
       {
         color: white;
@@ -51,16 +57,28 @@ header
     .menu_right
     {
       display: flex;
-
+      font-size: 30px;
+      font-weight: 900;
       .user_profile
       {
+        color: springgreen;
         margin-right: 10px;
-
         &:hover
         {
           color: white;
           text-decoration: underline;
         }
+      }
+      .log_out
+      {
+        background: royalblue;
+        border: 0;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: 900;
+        margin-top: 15px;
+        padding: 10px;
+        width: 100%;
       }
     }
   }
@@ -69,11 +87,19 @@ header
 // Main Content
 .main
 {
+  background: royalblue;
+  color: white;
   margin: 0 auto;
 }
 
 // Header
 footer
 {
-  background: aquamarine;
+  color: white;
+  .copyright
+  {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 20px 0px 20px 35px;
+  }
 }
