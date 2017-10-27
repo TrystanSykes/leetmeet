@@ -1,4 +1,14 @@
 .user_show_container {
   background: gold;
-  
+  display: inline-block;
+}
+
+.user_show_container .left {
+  width: 25%;
+  // display: inline-block;
+}
+
+.user_show_container .right {
+  width: 75%;
+  // display: inline-block;
 }
