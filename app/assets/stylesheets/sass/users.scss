@@ -5,6 +5,7 @@
 .users_edit_page {
   width: 60%;
   margin: 0 auto;
+  padding: 50px 0;
 }
 
 
@@ -36,19 +37,12 @@
   font-size: 16px;
 }
 
-.users_new_page .button,
-.users_edit_page .button {
-  /* Green */
-  background-color: #4CAF50;
+.new_user {
+  color: black;
+  padding: 10px 20px;
+}
 
-  border: none;
-  color: white;
-  padding: 10px 24px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 4px;
+.category_section,
+.avatar_upload {
+  margin: 20px 0;
 }

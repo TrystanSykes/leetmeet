@@ -20,7 +20,7 @@
 
     <div>Bio: <textarea name="bio"></textarea></div>
 
-    <div>Game List:
+    <div class="category_section">Game List:
       <% @games.each do | game | %>
       <div>
         <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
@@ -28,7 +28,7 @@
       <% end %>
     </div>
 
-    <div>Category List:
+    <div class="category_section">Category List:
       <% @categories.each do | category | %>
       <div>
         <input type="checkbox" name="category[<%= category.id %>]"><%= category.name %>
@@ -36,9 +36,9 @@
       <% end %>
     </div>
 
-    <div>Avatar CW Url: <input type="file" name="image"></div>
+    <div class="avatar_upload">Avatar CW Url: <input type="file" name="image"></div>
 
-    <button class="button" type="submit">Create New User</button>
+    <button class="new_user" type="submit">Create New User</button>
 
   <% end %>
 

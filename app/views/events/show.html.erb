@@ -33,9 +33,9 @@
 
   <div class="events_show_middle">
     <% if logged_in? %>
-    <div class="events_show_attending_btn events_show_attending_click">Join event</div>
+    <button class="events_show_attending_btn events_show_attending_click">Join event</button>
     <% else %>
-      <a class="events_show_attending_btn" href="/sessions/new"><div>Login to join!</div></a>
+      <button class="events_show_attending_btn" href="/sessions/new">Login to join!</button>
     <% end %>
     <% if logged_in? %>
       <% if @event.user.id == current_user.id %>
@@ -43,7 +43,7 @@
         <a href="/events/<%= @event.id %>/edit">edit</a>
       <% end %>
     <% end %>
-    <div class="events_show_attendee_btn"> See who's going</div>
+    <button class="events_show_attendee_btn"> See who's going</button>
   </div>
 
   <div class="events_show_about">
@@ -131,7 +131,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW2
       map: map,
       icon: {
           scaledSize: new google.maps.Size(40, 40),
-          url: event.game.logo.url 
+          url: event.game.logo.url
         }
     });
   }
