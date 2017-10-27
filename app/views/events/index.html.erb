@@ -3,7 +3,7 @@
   <div class="events_index_filters">
     <span>Filter by game:</span>
     <select name="" class="game_filter">
-        <option value="all">all</option>
+        <option value="0">all</option>
       <% @games.each do |game| %>
         <option value="<%= game.name %>"> <%= game.name %> </option>
       <% end %>

@@ -4,9 +4,9 @@
   <div class="pages_index_filters">
     <span>Filter by game:</span>
     <select name="" class="game_filter">
-        <option value="all">all</option>
+        <option value="0">all</option>
       <% @games.each do |game| %>
-        <option value="<%= game.name %>"> <%= game.name %> </option>
+        <option value="<%= game.id %>"> <%= game.name %> </option>
       <% end %>
     </select>
   <!-- <div class="pages_index_filters">
@@ -47,12 +47,12 @@
     container.appendChild(link);
     return container
   }
-
+var map = {}
   function initMap() {
 
     var melbourne = {lat: -37.818573, lng: 144.9569066};
     var GA = {lat: -37.818573, lng: 144.9569066};
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
       zoom: 13,
       center: melbourne
     });
@@ -70,6 +70,7 @@
         position: position,
         map: map,
         title: 'Click for details',
+        game_id: event.game_id,
         icon: {
           scaledSize: new google.maps.Size(40, 40),
           url: sc2Icon 
@@ -94,8 +95,14 @@
   $allEvents = $eventsContainer.children();
 
   $select.on('change', function() {
+    var $game = Number($select.val());
     markers.forEach(function(marker){
-      marker.setMap(null);
+      marker.setMap(map)
+      if ($game === 0) {
+        marker.setMap(map)
+      } else if (marker.game_id != $game) {
+        marker.setMap(null)
+      }
     })
 
 
