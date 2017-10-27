@@ -1,14 +1,68 @@
 .user_show_container {
   background: gold;
+  width: 100%;
   display: inline-block;
 }
 
 .user_show_container .left {
   width: 25%;
-  // display: inline-block;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.user_show_container .left .image {
+
 }
 
 .user_show_container .right {
-  width: 75%;
-  // display: inline-block;
+  color: black;
+  width: 73%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+
+}
+
+.user_show_container p {
+  padding: 10px 0;
+}
+
+// .user_show_container a {
+//   padding: 10px 0;
+// }
+
+// USERS INDEX STYLING
+.users_list {
+  background: gold;
+  width: 100%;
+  display: inline-block;
+}
+
+.users_list .users_list_user {
+  width: 24%;
+  display: inline-block;
+  vertical-align: top;
+  color: black;
+  padding: 10px;
+}
+
+
+.users_list .user_list_name {
+
+}
+
+.users_list .users_list_user .user_index_avatar {
+  max-width: 80px;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 10px;
+}
+
+.users_list .users_list_user .user_other_info {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 5px;
+
+
 }

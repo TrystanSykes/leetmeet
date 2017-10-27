@@ -2,25 +2,25 @@
 
 
   <div class="left">
-    <img src="<%= @user.avatar.url %>" alt="">
+    <img class="image" src="<%= @user.avatar.url %>" alt="">
   </div>
 
 
   <div class="right">
     <h1><%= @user.username %></h1>
-    <span id="rep_box">Reputation: <%= @user.reputation %></span>
+    <p><span id="rep_box">Reputation: <%= @user.reputation %></span></p>
     <% if logged_in? %>
-      <span id="vote_buttons"><span><button id="upvote">Upvote</button></span><span><button id="downvote">Downvote</button></span></span>
+      <p><span id="vote_buttons"><span><button id="upvote">Upvote</button></span><span><button id="downvote">Downvote</button></span></span></p>
     <% end %>
 
 
-    <p><%= @user.bio %></p>
+    <p>Bio: <%= @user.bio %></p>
 
     <% if @user.game_interests[0] %>
-      <div>Game List:
+      <div><p>Game List: </p>
         <% @user.game_interests.each do | game_interest | %>
         <div>
-          <%= game_interest.game.name %>
+          <p><%= game_interest.game.name %></p>
         </div>
         <% end %>
       </div>
@@ -28,10 +28,10 @@
 
 
     <% if @user.category_interests[0] %>
-      <div>Category List:
+      <div><p>Category List: </p>
         <% @user.category_interests.each do | cat_interest | %>
         <div>
-          <%= cat_interest.category.name %>
+          <p><%= cat_interest.category.name %></p>
         </div>
         <% end %>
       </div>
