@@ -1,7 +1,6 @@
 .events_new,
 .events_edit
 {
-  background: dodgerblue;
   padding: 20px 30px;
   width: 60%;
 }
@@ -29,6 +28,11 @@
   .form_group
   {
     margin: 10px 0;
+  }
+  
+  .btn_submit
+  {
+    color: black;
   }
 
   input[type=text],
