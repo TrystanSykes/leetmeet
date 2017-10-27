@@ -7,19 +7,15 @@
   font-family: 'Muli', sans-serif;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-ol,
-ul {
+html, body, h1, h2, h3, h4, h5, h6, p, a, span, blockquote, ol, ul, article, header, footer, nav, section {
+  border: 0;
   margin: 0;
   padding: 0;
+  vertical-align: baseline;
+}
+
+body {
+  line-height: 1;
 }
 
 ol,
@@ -27,7 +23,7 @@ ul {
   list-style: none;
 }
 
-main {
+main, article, header, footer, nav, section {
   display: block;
 }
 
@@ -35,10 +31,6 @@ a,
 button {
   color: inherit;
   transition: .3s;
-}
-
-a {
-  text-decoration: none;
 }
 
 img {

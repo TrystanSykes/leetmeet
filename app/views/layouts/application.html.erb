@@ -14,8 +14,8 @@
     <header>
       <div class="main_menu_container">
         <div class="logo_container">
-          <h1>1337M337</h1>
-          <h3>Connecting Gaming Communities</h3>
+          <h1 class="page_title">1337M337</h1>
+          <h3 class="tagline">Connecting Gaming Communities</h3>
         </div>
         <nav id="nav">
           <div class="menu_left">
@@ -27,16 +27,17 @@
 
           <div class="menu_right">
             <% if logged_in?  %>
-              <p>Logged in as <a href="/users/<%= current_user.id %>" class="user_profile"><%= current_user.username %></a></p>
+            <div class="logged_in">
+              <p>Logged in as: <a href="/users/<%= current_user.id %>" class="user_profile"><%= current_user.username %></a></p>
               <%= form_tag("/sessions/#{current_user.id}", method: :delete) do %>
-                <input type="hidden" name="_method" value="delete">
-                <button>Log Out</button>
+              <input type="hidden" name="_method" value="delete">
+              <button class="log_out">Log Out</button>
+            </div>
               <% end %>
             <% else %>
               <a href="/sessions/new">Log In</a>
             <% end %>
           </div>
-
         </nav>
       </div>
     </header>
@@ -46,7 +47,7 @@
     </div>
 
     <footer>
-      <p>&copy; 1337m337 2017</p>
+      <p class="copyright">&copy; 1337m337 2017</p>
     </footer>
   </body>
 </html>
