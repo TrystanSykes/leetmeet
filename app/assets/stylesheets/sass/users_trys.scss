@@ -12,7 +12,7 @@
 }
 
 .user_show_container .left .image {
-  // width: 500px;
+
 }
 
 .user_show_container .right {
@@ -40,9 +40,29 @@
 }
 
 .users_list .users_list_user {
-  width: 33%;
+  width: 24%;
   display: inline-block;
   vertical-align: top;
   color: black;
   padding: 10px;
+}
+
+
+.users_list .user_list_name {
+
+}
+
+.users_list .users_list_user .user_index_avatar {
+  max-width: 80px;
+  display: inline-block;
+  vertical-align: top;
+  padding-right: 10px;
+}
+
+.users_list .users_list_user .user_other_info {
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 5px;
+
+
 }

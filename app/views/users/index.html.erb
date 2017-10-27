@@ -3,8 +3,13 @@
   <div class="users_list">
     <% @users.each do |user| %>
     <div class="users_list_user">
-      <a href="/users/<%= user.id %>"><%= user.username %></a>
-      <p>Reputation: <%= user.reputation %></p>
+      <div class="user_index_avatar">
+        <img class="image" src="<%= user.avatar.url %>" alt="">
+      </div>
+      <div class="user_other_info">
+        <a href="/users/<%= user.id %>" class="user_list_name"><%= user.username %></a>
+        <p>Reputation: <%= user.reputation %></p>
+      </div>
     </div>
     <% end %>
 
