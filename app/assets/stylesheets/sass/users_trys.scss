@@ -1,5 +1,6 @@
 .user_show_container {
   background: gold;
+  width: 100%;
   display: inline-block;
 }
 
@@ -7,10 +8,41 @@
   width: 25%;
   display: inline-block;
   vertical-align: top;
+  padding: 10px;
+}
+
+.user_show_container .left .image {
+  // width: 500px;
 }
 
 .user_show_container .right {
+  color: black;
   width: 73%;
   display: inline-block;
   vertical-align: top;
+  padding: 10px;
+
+}
+
+.user_show_container p {
+  padding: 10px 0;
+}
+
+// .user_show_container a {
+//   padding: 10px 0;
+// }
+
+// USERS INDEX STYLING
+.users_list {
+  background: gold;
+  width: 100%;
+  display: inline-block;
+}
+
+.users_list .users_list_user {
+  width: 30%;
+  display: inline-block;
+  vertical-align: top;
+  color: black;
+  padding: 10px;
 }
