@@ -32,6 +32,13 @@
     var title = document.createElement("h3")
     var titleText = document.createTextNode(obj.title);
     title.appendChild(titleText);
+    var timeObj = new Date(obj.start_at)
+    var date = document.createElement("p");
+    var time = document.createElement("p");
+    var dateText = document.createTextNode("Date: " +timeObj.toDateString())
+    var timeText = document.createTextNode("Time: " +timeObj.toTimeString())
+    date.appendChild(dateText);
+    time.appendChild(timeText);
     var about = document.createElement("p");
     var aboutText = document.createTextNode(obj.about);
     var location = document.createElement("p");
@@ -42,6 +49,8 @@
     link.text = 'Go to event page'
     about.appendChild(aboutText);
     container.appendChild(title);
+    container.appendChild(date);
+    container.appendChild(time);
     container.appendChild(about);
     container.appendChild(location);
     container.appendChild(link);
