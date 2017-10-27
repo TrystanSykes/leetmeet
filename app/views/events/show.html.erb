@@ -48,7 +48,7 @@
   <ul class="events_show_attendee_list">
     <% @event.attendees.each do |attendee| %>
     <li class="events_show_attendee">
-      <%= attendee.user.username %>
+      <a href="/users/<%= attendee.user.id %>"><%= attendee.user.username %></a>
     </li>
     <% end %>
   </ul>
@@ -72,7 +72,7 @@
     $joinEventBtn.on('click', function(){
       var attending = false
       <% @event.attendees.each do |attendee| %>
-        <% if attendee.user.username == current_user.username %> 
+        <% if attendee.user.username == current_user.username %>
           attending = true
         <% end %>
       <% end %>
@@ -86,14 +86,17 @@
         $.ajax(options).done(function(response) {
           console.log(response)
           var $li = $('<li>', {"class": "events_show_attendee"})
+          var $a = $('<a>').attr("href", "/users/" + response.user_id )
+
           $li.text(response.username)
-          $attendeesUList.append($li)
+          $a.append($li)
+          $attendeesUList.append($a)
         })
       }
     })
     <% end %>
 </script>
-<script 
+<script
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c">
 </script>
 <script>
@@ -126,6 +129,3 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW2
   }
   $.ajax( options ).done( initMap );
     </script>
-
-
-
