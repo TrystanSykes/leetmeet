@@ -5,10 +5,12 @@
 
 .user_show_container .left {
   width: 25%;
-  // display: inline-block;
+  display: inline-block;
+  vertical-align: top;
 }
 
 .user_show_container .right {
-  width: 75%;
-  // display: inline-block;
+  width: 73%;
+  display: inline-block;
+  vertical-align: top;
 }
