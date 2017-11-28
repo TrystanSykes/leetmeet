@@ -1,13 +1,13 @@
-<div class="users_index">
+<div class="users-index">
 
-  <div class="users_list">
+  <div class="users-list">
     <% @users.each do |user| %>
-    <div class="users_list_user">
-      <div class="user_index_avatar">
+    <div class="users-list-user">
+      <div class="user-index-avatar">
         <img class="image" src="<%= user.avatar.url %>" alt="">
       </div>
-      <div class="user_other_info">
-        <a href="/users/<%= user.id %>" class="user_list_name"><%= user.username %></a>
+      <div class="user-other-info">
+        <a href="/users/<%= user.id %>" class="user-list-name"><%= user.username %></a>
         <p>Reputation: <%= user.reputation %></p>
       </div>
     </div>

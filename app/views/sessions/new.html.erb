@@ -1,23 +1,19 @@
-<div class="sessions_new_page">
+<!-- sessions-new-page -->
+<div class="sessions-new-page">
   <h2>Login</h2>
 
   <% if @errors %>
-
     <% @errors.each do |error| %>
       <p><%= error %></p>
     <% end %>
-
   <% end %>
 
   <%= form_tag '/sessions', method: 'post' do %>
     <div>Email: <input type="text" name="email"></div>
-
     <div>Password: <input type="password" name="password"></div>
-
-    <button class="user_log_in" type="submit">Log in</button>
-
+    <button class="user-log-in btn waves-effect waves-light" type="submit">Log in</button>
   <% end %>
-  </br>
+
   <a href="/users/new"><h5>I don't have an account</h5></a>
-  </br>
 </div>
+<!-- end sessions-new-page -->

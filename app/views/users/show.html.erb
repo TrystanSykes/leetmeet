@@ -1,20 +1,22 @@
-<div class="user_show_container">
-
-
+<!-- user-show-container -->
+<div class="user-show-container">
+  <!-- left -->
   <div class="left">
     <img class="image" src="<%= @user.avatar.url %>" alt="">
   </div>
+  <!-- end left -->
 
-
+  <!-- right -->
   <div class="right">
     <h1><%= @user.username %></h1>
-    <p><span id="rep_box">Reputation: <%= @user.reputation %></span></p>
+    <p><span id="rep-box">Reputation: <%= @user.reputation %></span></p>
     <% if logged_in? %>
-      <p><span id="vote_buttons"><span><button id="upvote">Upvote</button></span><span><button id="downvote">Downvote</button></span></span></p>
+      <p>
+        <span id="vote-buttons"><span><button id="upvote" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">thumb_up</i></button></span><span><button id="downvote" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">thumb_down</i></button></span></span>
+      </p>
     <% end %>
 
-
-    <p>Bio: <%= @user.bio %></p>
+      <p>Bio: <%= @user.bio %></p>
 
     <% if @user.game_interests[0] %>
       <div><p>Game List: </p>
@@ -26,7 +28,6 @@
       </div>
     <% end %>
 
-
     <% if @user.category_interests[0] %>
       <div><p>Category List: </p>
         <% @user.category_interests.each do | cat_interest | %>
@@ -37,18 +38,17 @@
       </div>
     <% end %>
 
-
-    <a href="/users/<%= @user.id %>/edit"><button>Edit</button></a>
-    <a href="/users/delete/<%= @user.id %>"><button>Delete</button></a>
+    <a href="/users/<%= @user.id %>/edit"><button class="btn waves-effect waves-light">Edit</button></a>
+    <a href="/users/delete/<%= @user.id %>"><button class="btn waves-effect waves-light">Delete</button></a>
   </div>
-
-
+  <!-- end right -->
 </div>
+<!-- end user-show-container -->
 
 <script>
   $authToken = $('meta[name=csrf-token]').attr('content');
   <% if logged_in? %>
-  $('#vote_buttons').on('click', function(event){
+  $('#vote-buttons').on('click', function(event){
 
     if (event.target.id === "upvote") {
       var options = {
@@ -73,20 +73,16 @@
         }
       }
     } else {
-        return
-      }
-
+      return
+    }
 
     var updateRep = function(resp) {
       if(resp.reputation) {
-        $('#rep_box').text('Reputation: ' + resp.reputation)
+        $('#rep-box').text('Reputation: ' + resp.reputation)
       }
     }
 
     $.ajax(options).done(updateRep);
   });
   <% end %>
-
-
-
 </script>

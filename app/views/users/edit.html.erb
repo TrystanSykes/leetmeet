@@ -1,12 +1,11 @@
-<div class="users_edit_page">
+<!-- users-edit-page -->
+<div class="users-edit-page">
   <h1>Update User Profile</h1>
 
   <% if @errors %>
-
     <% @errors.each do |error| %>
       <p><%= error %></p>
     <% end %>
-
   <% end %>
 
   <%= form_tag("/users/#{@user.id}", method: :put, enctype: "multipart/form-data") do %>
@@ -19,24 +18,24 @@
     <div>Game List:
       <% @games.each do | game | %>
         <div>
-        <% if @user.game_interests.find_by(game_id: game.id).nil? %>
-          <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
-        <%  else %>
-          <input type="checkbox" name="game[<%= game.id %>]" checked><%= game.name %>
-        <%  end %>
-      </div>
+          <% if @user.game_interests.find_by(game_id: game.id).nil? %>
+            <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
+          <%  else %>
+            <input type="checkbox" name="game[<%= game.id %>]" checked><%= game.name %>
+          <%  end %>
+        </div>
       <% end %>
     </div>
 
     <div>Category List:
       <% @categories.each do | category | %>
         <div>
-        <% if @user.category_interests.find_by(category_id: category.id).nil? %>
-          <input type="checkbox" name="category[<%= category.id %>]"><%= category.name %>
-        <%  else %>
-          <input type="checkbox" name="category[<%= category.id %>]" checked><%= category.name %>
-        <%  end %>
-      </div>
+          <% if @user.category_interests.find_by(category_id: category.id).nil? %>
+            <input type="checkbox" name="category[<%= category.id %>]"><%= category.name %>
+          <%  else %>
+            <input type="checkbox" name="category[<%= category.id %>]" checked><%= category.name %>
+          <%  end %>
+        </div>
       <% end %>
     </div>
 
@@ -44,8 +43,8 @@
 
     <div>Avatar CW Url: <input type="file" name="image"></div>
 
-    <button class="button" type="submit">Update Profile</button>
-
+    <button class="update-profile btn waves-effect waves-light" type="submit">Update Profile</button>
   <% end %>
 
 </div>
+<!-- end users-edit-page -->

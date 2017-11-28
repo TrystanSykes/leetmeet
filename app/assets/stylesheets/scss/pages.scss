@@ -8,23 +8,21 @@
   margin: 0 auto;
 }
 
-.pages_index_map_container {
+.pages-index-map-container {
   padding-top: 20px;
   height: 80vh;
-  background-color: grey;
-  color: black;
+  background-color: $map-background;
 }
 
-.pages_index_map_container a {
+.pages-index-map-container a {
   color: red;
 }
 
-.pages_index_container {
-  background-color: grey;
-  color: white;
+.pages-index-container {
+  background-color: $map-background;
 }
 
-.pages_index_filters {
+.pages-index-filters {
   display: inline-block;
 }
 

@@ -1,12 +1,11 @@
-<div class="users_new_page">
+<!-- users-new-page -->
+<div class="users-new-page">
   <h2>Create New User</h2>
 
   <% if @errors %>
-
     <% @errors.each do |error| %>
       <p><%= error %></p>
     <% end %>
-
   <% end %>
 
   <%= form_tag '/users', method: 'post', enctype: "multipart/form-data" do %>
@@ -20,15 +19,15 @@
 
     <div>Bio: <textarea name="bio"></textarea></div>
 
-    <div class="category_section">Game List:
+    <div class="category-section">Game List:
       <% @games.each do | game | %>
-      <div>
-        <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
-      </div>
+        <div>
+          <input type="checkbox" name="game[<%= game.id %>]"><%= game.name %>
+        </div>
       <% end %>
     </div>
 
-    <div class="category_section">Category List:
+    <div class="category-section">Category List:
       <% @categories.each do | category | %>
       <div>
         <input type="checkbox" name="category[<%= category.id %>]"><%= category.name %>
@@ -36,13 +35,14 @@
       <% end %>
     </div>
 
-    <div class="avatar_upload">Avatar CW Url: <input type="file" name="image"></div>
+    <div class="avatar-upload">Avatar CW Url: <input type="file" name="image"></div>
 
-    <button class="new_user" type="submit">Create New User</button>
-
+    <button class="new-user btn waves-effect waves-light" type="submit">Create New User</button>
   <% end %>
 
 </div>
+<!-- end users-new-page -->
+
 <!-- <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
 
