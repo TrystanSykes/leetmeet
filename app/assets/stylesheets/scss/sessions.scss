@@ -1,0 +1,31 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sessions-new-page {
+  color: $primary-text;
+  width: 60%;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.form-container {
+  // background: white;
+}
+
+.sessions-new-page input[type=text],
+.sessions-new-page input[type=password] {
+  background-color: $form-input-background;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: $form-inputs;
+  font-size: 16px;
+  margin: 8px 0;
+  padding: 12px 10px;
+  width: 100%;
+}
+
+.user-log-in {
+  margin: 20px 0px;
+}

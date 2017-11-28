@@ -1,9 +1,9 @@
-<div class="events_index">
+<div class="events-index">
 
-  <div class="events_index_filters">
-    <div class="events_index_filter_pair">
+  <div class="events-index-filters">
+    <div class="events-index-filter-pair">
       <span>Filter by game:</span>
-      <select name="" class="game_filter">
+      <select name="" class="game-filter">
           <option value="all">all</option>
         <% @games.each do |game| %>
           <option value="<%= game.name %>"> <%= game.name %> </option>
@@ -11,37 +11,37 @@
       </select>
     </div>
     <% if logged_in? %>
-      <a href="/events/new"><div>create event</div></a>
+      <a href="/events/new" class="btn waves-effect waves-light">Create Event</a>
     <% end %>
   </div>
 
-  <div class="events_index_event_list">
+  <div class="events-index-event-list">
     <% @events.each do |event| %>
-      <div data-value="<%= event.game.name %>" class="events_index_event">
+      <div data-value="<%= event.game.name %>" class="events-index-event">
         <a href="events/<%= event.id %>">
             <h3> <%= event.title %> </h3>
-            <h4> <%= event.user.username %> </h4>
-            <h4> <%= event.location %> </h4>
-            <h4> <%= event.game.name %> </h4>
-            <h4> <%= event.category.name %> </h4>
+            <h5> <%= event.user.username %> </h5>
+            <h5> <%= event.location %> </h5>
+            <h5> <%= event.game.name %> </h5>
+            <h5> <%= event.category.name %> </h5>
         </a>
-      </div>       
-    <% end %>    
+      </div>
+    <% end %>
   </div>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
-  $select = $('.game_filter');
-  $eventsContainer = $('.events_index_event_list');
+  $select = $('.game-filter');
+  $eventsContainer = $('.events-index-event-list');
   $allEvents = $eventsContainer.children();
 
   $select.on('change', function() {
     $game = $select.val();
-    $allEvents.removeClass('display_none');
+    $allEvents.removeClass('display-none');
     $allEvents.each(function() {
       if ($(this).data('value') != $game && $game != 'all') {
-        $(this).addClass("display_none")
+        $(this).addClass("display-none")
       }
     })
   });

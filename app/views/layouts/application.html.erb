@@ -3,48 +3,71 @@
   <head>
     <title>1337m337</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
 
   <body>
     <header>
-      <div class="main_menu_container">
-        <div class="logo_container">
-          <h1 class="page_title">1337M337</h1>
-          <h3 class="tagline">Connecting Gaming Communities</h3>
-        </div>
-        <nav id="nav">
-          <div class="menu_left">
-            <a href="/" class="menu_links">Home</a>
-            <a href="/events" class="menu_links">Events</a>
-            <a href="/users" class="menu_links">Users</a>
-            <a href="/about" class="menu_links">About</a>
-          </div>
+      <!-- nav -->
+      <nav id="nav">
+        <div class="nav-wrapper">
+          <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
 
-          <div class="menu_right">
+          <!-- logo-container -->
+          <div class="logo-container">
+            <h1 class="page-title">1337M337</h1>
+            <h5 class="tagline">Connecting Gaming Communities</h5>
+          </div>
+          <!-- end logo-container -->
+
+          <!-- menu-left -->
+          <ul class="menu-left hide-on-med-and-down">
+            <li><a href="/" class="menu-links">Home</a></li>
+            <li><a href="/events" class="menu-links">Events</a></li>
+            <li><a href="/users" class="menu-links">Users</a></li>
+            <li><a href="/about" class="menu-links">About</a></li>
+          </ul>
+          <!-- end menu-left -->
+
+          <!-- menu-right -->
+          <div class="menu-right">
             <% if logged_in?  %>
-            <div class="logged_in">
-              <p>Logged in as: <a href="/users/<%= current_user.id %>" class="user_profile"><%= current_user.username %></a></p>
-              <%= form_tag("/sessions/#{current_user.id}", method: :delete) do %>
-              <input type="hidden" name="_method" value="delete">
-              <button class="log_out">Log Out</button>
-            </div>
-              <% end %>
+              <div class="logged-in">
+                <p><a href="/users/<%= current_user.id %>" class="user-profile"><%= current_user.username %></a></p>
+                <%= form_tag("/sessions/#{current_user.id}", method: :delete) do %>
+                  <input type="hidden" name="_method" value="delete">
+                <button class="log-out btn waves-effect waves-light">Log Out</button>
+              </div>
+            <% end %>
             <% else %>
-              <a href="/sessions/new" class="log_in">Log In</a>
+              <a href="/sessions/new" class="log-in btn waves-effect waves-light">Log In</a>
             <% end %>
           </div>
-        </nav>
-      </div>
+          <!-- end menu-right -->
+
+          <!-- mobile-nav -->
+          <ul class="side-nav" id="mobile-nav">
+            <li><a href="/" class="menu-links">Home</a></li>
+            <li><a href="/events" class="menu-links">Events</a></li>
+            <li><a href="/users" class="menu-links">Users</a></li>
+            <li><a href="/about" class="menu-links">About</a></li>
+          </ul>
+          <!-- end mobile-nav -->
+        </div>
+      </nav>
+      <!-- end nav -->
     </header>
 
+    <!-- main -->
     <div class="main">
       <%= yield %>
     </div>
+    <!-- end main -->
 
     <footer>
       <p class="copyright">&copy; 1337m337 2017</p>

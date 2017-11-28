@@ -1,62 +1,59 @@
-.user_show_container {
-  background: gold;
+.user-show-container {
+  display: inline-block;
   width: 100%;
-  display: inline-block;
+  color: $primary-text;
 }
 
-.user_show_container .left {
+.user-show-container .left {
+  display: inline-block;
+  padding: 10px;
+  vertical-align: top;
   width: 25%;
+}
+
+// .user-show-container .left .image {
+//
+// }
+
+.user-show-container .right {
   display: inline-block;
-  vertical-align: top;
   padding: 10px;
-}
-
-.user_show_container .left .image {
-
-}
-
-.user_show_container .right {
-  color: black;
+  vertical-align: top;
   width: 73%;
-  display: inline-block;
-  vertical-align: top;
-  padding: 10px;
-
 }
 
-.user_show_container p {
+.user-show-container p {
   padding: 10px 0;
 }
 
-// .user_show_container a {
+// .user-show-container a {
 //   padding: 10px 0;
 // }
 
 // USERS INDEX STYLING
-.users_list {
-  background: gold;
+.users-list {
   width: 100%;
   display: inline-block;
 }
 
-.users_list .users_list_user {
+.users-list .users-list-user {
   width: 24%;
   display: inline-block;
   vertical-align: top;
-  color: black;
+  color: $primary-text;
   padding: 10px;
   font-size: 25px;
   padding: 20px;
 }
 
-.users_list .users_list_user .user_index_avatar {
+.users-list .users-list-user .user-index-avatar {
   max-width: 80px;
   display: inline-block;
   vertical-align: top;
   padding-right: 10px;
 }
 
-.users_list .users_list_user .user_other_info {
+.users-list .users-list-user .user-other-info {
   display: inline-block;
   vertical-align: top;
   padding-top: 5px;

@@ -1,74 +1,77 @@
 // ALL STYLING FOR EVENTS/SHOW
-.events_show {
-  .events_show_top {
+.events-show {
+  .events-show-top {
     display: flex;
     justify-content: space-between;
+    color: $primary-text;
     width: 100%;
-    height: 300px;
-    .map_container {
-      height: 300px;
+    // height: 300px;
+    .map-container {
+      height: auto;
       width: 40%;
       #map {
         height: 100%;
         width: 100%;
       }
     }
-    .events_show_info {
+    .events-show-info {
       width: 100%;
       min-height: 100%;
       display: flex;
       align-items: center;
-      .events_show_info_key {
+      .events-show-info-key {
         width: 30%;
         padding-left: 2%;
       }
-      .events_show_info_value {
+      .events-show-info-value {
         width: 70%;
         padding: 10px;
       }
     }
   }
-  .events_show_middle {
-    width: 100%;
-    height: 10%;
+  .events-show-middle {
     display: flex;
     justify-content: space-between;
-    .events_show_attending_btn {
+    height: 10%;
+    margin-top: 10px;
+    width: 100%;
+    .events-show-attending {
       text-align: center;
       vertical-align: middle;
-      color: black;
-      line-height: 56px;
-      width: 18%;
-      height: 80%;
-      margin: 7px 0 7px 7px;
-      font-size: 30px;
-      font-weight: 900;
+      // color: black;
+      // line-height: 56px;
+      // width: 18%;
+      // height: 80%;
+      // margin: 7px 0 7px 7px;
+      // font-size: 30px;
+      // font-weight: 900;
     }
-    .events_show_attendee_btn {
+    .events-show-attendee {
       text-align: center;
       vertical-align: middle;
-      color: black;
-      line-height: 56px;
-      width: 18%;
-      height: 80%;
-      margin: 7px 7px 7px 0;
-      font-size: 30px;
-      font-weight: 900;
+      color: $primary-text;
+      // line-height: 56px;
+      // width: 18%;
+      // height: 80%;
+      // margin: 7px 7px 7px 0;
+      // font-size: 30px;
+      // font-weight: 900;
     }
   }
-  .events_show_about {
+  .events-show-about {
+    color: $primary-text;
     padding: 7px;
   }
 }
-.events_show_attendees {
-  background-color: plum;
-  .events_show_attendee_list {
+.events-show-attendees {
+  // background-color: plum;
+  .events-show-attendee-list {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-wrap: wrap;
   }
-  .events_show_attendee {
+  .events-show-attendee {
     display: inline-block;
     margin: 5px 5px 5px 5px;
     background-color: rgba(0,0,0,0.2);
@@ -77,27 +80,33 @@
   }
 }
 // ALL STYLING FOR EVENTS/INDEX
-.events_index {
-  .events_index_filters {
+.events-index {
+  .events-index-filters {
     display: flex;
     justify-content: space-between;
     height: 5%;
-    background-color: tomato;
+    // background-color: tomato;
     padding: 30px;
     font-size: 30px;
+    color: $primary-text;
   }
-  .events_index_event_list {
+  .events-index-event-list {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    .events_index_event {
+    .events-index-event {
       width: 50%;
       outline: 2px solid; /* use instead of border */
       padding: 30px;
       font-size: 30px;
+      color: $primary-text;
+    }
+    a
+    {
+      color: $primary-text;
     }
   }
 }
-.display_none {
+.display-none {
   display: none;
 }

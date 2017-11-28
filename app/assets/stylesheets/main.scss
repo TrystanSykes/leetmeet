@@ -1,77 +1,90 @@
+// Variables
+$map-background: #bdbdbd; //grey lighten-1
+$background: #263238; //blue-grey darken-4
+$header: #000000; //black
+$primary-text: #ffffff; //white
+$error-messages: #f44336; //red
+$form-inputs: #000000; //black
+$form-input-background: #ffffff; //white
+
 // Main Layout
 body
 {
-  background: black;
+  background: $background;
   height: 100vh;
 }
 
 // Text
 .errors
 {
-  color: red;
+  color: $error-messages;
 }
 
 // Header
 header
 {
-  background: black;
-  color: white;
+  background: $header;
+  color: $primary-text;
 }
 
-.main_menu_container
-{
-  display: flex;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 20px 30px;
-  width: 100%;
-  .logo_container
+// .main-menu-container
+// {
+//   display: flex;
+//   justify-content: space-between;
+//   margin: 0 auto;
+//   padding: 20px 30px;
+//   width: 100%;
+
+  .logo-container
   {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 25%;
-    .page_title
+
+    .page-title
     {
       font-size: 50px;
     }
+
+    .tagline
+    {
+      padding-bottom: 15px;
+    }
+  }
+// }
+
+nav
+{
+  background: $header;
+  height: 100%;
+}
+
+.nav-wrapper
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .menu-links
+  {
+    font-size: 30px;
+    font-weight: 900;
+    margin: 0px 30px;
   }
 
-  nav
+  .menu-right
   {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 75%;
-    .menu_links
-    {
-      font-size: 30px;
-      font-weight: 900;
-      margin: 0px 30px;
-    }
+    font-size: 30px;
+    font-weight: 900;
 
-    .menu_right
+    .logged-in
     {
       display: flex;
-      font-size: 30px;
-      font-weight: 900;
-      .user_profile
+
+      .user-profile
       {
-        color: springgreen;
         margin-right: 10px;
-      }
-      .log_out
-      {
-        background: royalblue;
-        font-size: 20px;
-        font-weight: 900;
-        margin-top: 15px;
-        padding: 10px;
-        width: 100%;
-        &:hover
-        {
-          background: dodgerblue;
-        }
       }
     }
   }
@@ -80,17 +93,18 @@ header
 // Main Content
 .main
 {
-  background: royalblue;
-  color: white;
   margin: 0 auto;
+  min-height: 85vh;
 }
 
 // About Page
-.about_container
+.about-container
 {
   padding: 30px;
+
   p
   {
+    color: $primary-text;
     font-size: 30px;
   }
 }
@@ -98,11 +112,17 @@ header
 // Header
 footer
 {
-  background: black;
-  color: white;
+  color: $primary-text;
+
   .copyright
   {
     font-size: 25px;
     font-weight: 600;
   }
+}
+
+// Media Queries
+@media screen and (max-width: 1200px)
+{
+
 }

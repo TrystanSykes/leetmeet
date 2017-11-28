@@ -1,9 +1,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<div class="pages_index_container">
-  <div class="pages_index_filters">
+<!-- pages-index-container -->
+<div class="pages-index-container">
+  <!-- pages-index-filters -->
+  <div class="pages-index-filters">
     <span>Filter by game:</span>
-    <select name="" class="game_filter">
+    <select name="" class="game-filter">
         <option value="0">all</option>
       <% @games.each do |game| %>
         <option value="<%= game.id %>"> <%= game.name %> </option>
@@ -18,16 +20,20 @@
       <% end %>
     </select>
   </div> -->
-</div>
-  
-  <div class="pages_index_map_container">
-    <div id="map"></div>
   </div>
+  <!-- end pages-index-filters -->
+</div>
+<!-- end pages-index-container -->
 
+<!-- pages-index-map-container -->
+<div class="pages-index-map-container">
+  <div id="map"></div>
+</div>
+<!-- end pages-index-map-container -->
 
 <script>
   var markers = [];
-  var genInfo = function(obj) {  
+  var genInfo = function(obj) {
     var container = document.createElement("div");
     var title = document.createElement("h3")
     var titleText = document.createTextNode(obj.title);
@@ -42,7 +48,7 @@
     var about = document.createElement("p");
     var aboutText = document.createTextNode(obj.about);
     var location = document.createElement("p");
-    var locationText = document.createTextNode(obj.location); 
+    var locationText = document.createTextNode(obj.location);
     location.appendChild(locationText);
     var link = document.createElement("a");
     link.href = "/events/" + obj.id
@@ -56,9 +62,8 @@
     container.appendChild(link);
     return container
   }
-var map = {}
+  var map = {}
   function initMap() {
-
     var melbourne = {lat: -37.818573, lng: 144.9569066};
     var GA = {lat: -37.818573, lng: 144.9569066};
     map = new google.maps.Map(document.getElementById('map'), {
@@ -81,7 +86,7 @@ var map = {}
         game_id: event.game_id,
         icon: {
           scaledSize: new google.maps.Size(40, 40),
-          url: event.game.logo.url 
+          url: event.game.logo.url
         }
         });
         var contentObj = genInfo(event);
@@ -96,10 +101,10 @@ var map = {}
         markers.push(marker)
       })
     }
-  $.ajax( options ).done( createMarkers );
+    $.ajax( options ).done( createMarkers );
   }
   $select = $('.game_filter');
-  $eventsContainer = $('.events_index_event_list');
+  $eventsContainer = $('.events-index-event-list');
   $allEvents = $eventsContainer.children();
 
   $select.on('change', function() {
@@ -112,14 +117,7 @@ var map = {}
         marker.setMap(null)
       }
     })
-
-
-    
-
-    
   });
-
-
 </script>
 
 <script async defer

@@ -1,41 +1,41 @@
-<div class="events_show">
+<div class="events-show">
 
-  <div class="events_show_top">
-    <div class="map_container">
+  <div class="events-show-top">
+    <div class="map-container">
       <div id="map"></div>
     </div>
-    <div class="events_show_info">
-      <div class="events_show_info_key">
+    <div class="events-show-info">
+      <div class="events-show-info-key">
         <h1>Event:</h1>
-        <h2>Start Date:</h2>
-        <h2>Start Time:</h2>
-        <h2>End Date:</h2>
-        <h2>End Time:</h2>
-        <h2>Game:</h2>
-        <h2>Created by:</h2>
-        <h2>Category:</h2>
-        <h2>Address:</h2>
+        <h4>Start Date:</h4>
+        <h4>Start Time:</h4>
+        <h4>End Date:</h4>
+        <h4>End Time:</h4>
+        <h4>Game:</h4>
+        <h4>Created by:</h4>
+        <h4>Category:</h4>
+        <h4>Address:</h4>
       </div>
-      <div class="events_show_info_value">
-        <input id="event_id" type="hidden" value="<%= @event.id %>">
+      <div class="events-show-info-value">
+        <input id="event-id" type="hidden" value="<%= @event.id %>">
         <h1> <%= @event.title %> </h1>
-        <h2> <%= @event.start_at.strftime("%m/%d/%Y") %> </h2>
-        <h2> <%= @event.start_at.strftime("%I:%M%p") %> </h2>
-        <h2> <%= @event.end_at.strftime("%m/%d/%Y") %> </h2>
-        <h2> <%= @event.end_at.strftime("%I:%M%p") %> </h2>
-        <h2> <%= @event.game.name %> </h2>
-        <h2> <%= @event.user.username %> </h2>
-        <h2> <%= @event.category.name %> </h2>
-        <h2> <%= @event.location %> </h2>
+        <h4> <%= @event.start_at.strftime("%m/%d/%Y") %> </h4>
+        <h4> <%= @event.start_at.strftime("%I:%M%p") %> </h4>
+        <h4> <%= @event.end_at.strftime("%m/%d/%Y") %> </h4>
+        <h4> <%= @event.end_at.strftime("%I:%M%p") %> </h4>
+        <h4> <%= @event.game.name %> </h4>
+        <h4> <%= @event.user.username %> </h4>
+        <h4> <%= @event.category.name %> </h4>
+        <h4> <%= @event.location %> </h4>
       </div>
     </div>
   </div>
 
-  <div class="events_show_middle">
+  <div class="events-show-middle">
     <% if logged_in? %>
-    <button class="events_show_attending_btn events_show_attending_click">Join event</button>
+    <button class="events-show-attending events-show-attending-click btn waves-effect waves-light">Join event</button>
     <% else %>
-      <button class="events_show_attending_btn" href="/sessions/new">Login to join!</button>
+      <button class="events-show-attending btn waves-effect waves-light" href="/sessions/new">Login to join!</button>
     <% end %>
     <% if logged_in? %>
       <% if @event.user.id == current_user.id %>
@@ -43,19 +43,19 @@
         <a href="/events/<%= @event.id %>/edit">edit</a>
       <% end %>
     <% end %>
-    <button class="events_show_attendee_btn"> See who's going</button>
+    <button class="events-show-attendee btn waves-effect waves-light"> See who's going</button>
   </div>
 
-  <div class="events_show_about">
+  <div class="events-show-about">
     <h3>About the event:</h3>
     <p> <%= @event.about %> </p>
   </div>
 
 </div>
-<div class="events_show_attendees display_none">
-  <ul class="events_show_attendee_list">
+<div class="events-show-attendees display-none">
+  <ul class="events-show-attendee-list">
     <% @event.attendees.each do |attendee| %>
-    <li class="events_show_attendee">
+    <li class="events-show-attendee">
       <a href="/users/<%= attendee.user.id %>"><%= attendee.user.username %></a>
     </li>
     <% end %>
@@ -64,17 +64,17 @@
 
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 <script>
-  $joinEventBtn = $('.events_show_attending_click')
-  $goToLogin = $('.events_show_attending_btn')
-  $seeAttendeesBtn = $('.events_show_attendee_btn')
-  $attendeesDivList = $('.events_show_attendees')
-  $attendeesUList = $('.events_show_attendee_list')
+  $joinEventBtn = $('.events-show-attending-click')
+  $goToLogin = $('.events-show-attending')
+  $seeAttendeesBtn = $('.events-show-attendee')
+  $attendeesDivList = $('.events-show-attendees')
+  $attendeesUList = $('.events-show-attendee-list')
   $authToken = $('meta[name=csrf-token]').attr('content');
 
 
 
   $seeAttendeesBtn.on('click', function() {
-    $attendeesDivList.toggle('display_none')
+    $attendeesDivList.toggle('display-none')
   })
   <% if logged_in? %>
     $joinEventBtn.on('click', function(){
@@ -93,7 +93,7 @@
         };
         $.ajax(options).done(function(response) {
           console.log(response)
-          var $li = $('<li>', {"class": "events_show_attendee"})
+          var $li = $('<li>', {"class": "events-show-attendee"})
           var $a = $('<a>').attr("href", "/users/" + response.user_id )
 
           $li.text(response.username)
@@ -108,7 +108,7 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c">
 </script>
 <script>
-  $eventId = parseInt($('#event_id').val())
+  $eventId = parseInt($('#event-id').val())
 
     var options = {
       url: "/api/events",
