@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-group-half">
-      <select name="game_id">
+      Game: <select name="game_id">
         <% @games.each do |game| %>
           <option value="<%= game.id %>"><%= game.name %></option>
         <% end %>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="form-group-half">
-      <select name="category_id">
+      Category: <select name="category_id">
         <% @categories.each do |category| %>
           <option value="<%= category.id %>"><%= category.name %></option>
         <% end %>
@@ -78,6 +78,10 @@
       longInput.value = long;
     });
   };
+
+  $(document).ready(function() {
+    $('select').material_select();
+  });
 </script>
 <script async defer
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdo1rTdkTMEBeUMzE51jeLdW25j5K4y9c&libraries=places&callback=initAutocomplete">

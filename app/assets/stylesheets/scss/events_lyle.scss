@@ -89,6 +89,12 @@
     padding: 30px;
     font-size: 30px;
     color: $primary-text;
+    .events-index-filter-pair {
+      display: flex;
+      .game-filter {
+        color: $form-inputs;
+      }
+    }
   }
   .events-index-event-list {
     display: flex;
