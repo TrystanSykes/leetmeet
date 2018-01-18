@@ -41,6 +41,11 @@ gem 'pry-rails'
 # Other Gems
 gem 'jquery-rails', '~> 4.3.1'
 gem 'sprockets-rails', '~>3.2.1'
+gem "capistrano", "~> 3.4"
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-rbenv'
+gem 'capistrano3-puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
